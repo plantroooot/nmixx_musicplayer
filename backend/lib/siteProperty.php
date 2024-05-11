@@ -11,4 +11,6 @@ const DB_ENCRYPTION = "CONCAT('*', UPPER(SHA1(UNHEX(SHA1(";                     
 
 const CHECK_REFERER = true;                                    // 레퍼러값 체크여부
 const REFERER_URL = "mixxplayer";                                // 레퍼러 비교 도메인(www 제외)
+
+const START_PAGE = COMPANY_URL."/admin/dashboard/";
 ?>

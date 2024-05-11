@@ -3,7 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/common.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/function.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/codeUtil.php";
-include_once $_SERVER['DOCUMENT_ROOT']."/lib/environment/Admin.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/lib/environment/Admin.class.php";
 ?>
 <!doctype html>
 <html lang="ko">
@@ -21,29 +21,29 @@ if ($param) {
 } else {
 	$url = START_PAGE;
 }
-
 $_POST = xss_clean($_POST);
 
-$admin = new Admin($_POST);
-$result = $admin->loginCheck();
+$admin = new Admin(0, "admin", $_POST);
+$result = $admin->loginCheck($_POST);
 
-if (!empty($result)) {
+if($result){
+	$row = mysqli_fetch_array($result);
+	$loginCheck = $row['cnt'];
+}else{
+	$loginCheck = 0;
+}
 
-	$_SESSION['admin_no'] = $result['no'];
-	$_SESSION['admin_id'] = $result['id'];
-	$_SESSION['admin_name'] = $result['name'];
-	$_SESSION['admin_grade'] = $result['grade'];
-	$_SESSION['admin_email'] = $result['email'];
-	$_SESSION['admin_branch'] = isset($result['branch']) ? $result['branch'] : '';
-	$_SESSION['admin_type'] = isset($result['type']) ? $result['type'] : '';
+if ($loginCheck > 0) {
+	$result = $admin->getLoginSessionInfo($_POST);
+	$row = mysqli_fetch_array($result);
 
-    $data = [
-        "id" => $result["id"],
-        "name" => $result["name"],
-        "ip" => $_SERVER["REMOTE_ADDR"],
-    ];
-
-	$admin->insertLoginHistory($data);
+	$_SESSION['admin_no'] = $row['adm_id'];
+	$_SESSION['admin_id'] = $row['adm_userid'];
+	$_SESSION['admin_name'] = $row['adm_name'];
+	$_SESSION['admin_grade'] = $row['adm_grade'];
+	$_SESSION['admin_email'] = $row['adm_email'];
+	
+	$admin->insertLoginHistory($row['adm_userid'], $row['adm_name'], $_SERVER['REMOTE_ADDR']);
 	
 	$url = START_PAGE;
 ?>

@@ -95,8 +95,9 @@ $(function(){
     <div id="mb_login" class="mbskin">
         <h1><?=COMPANY_NAME?> 관리자모드</h1>
 
-        <form name="flogin" action="" onsubmit="" method="post" id="flogin">
-            <input type="hidden" name="url" value="">
+        <form name="flogin" action="/admin/include/login.php" method="post" id="flogin">
+				<input type="hidden" name="url" id="url"/>
+				<input type="hidden" name="param" id="param"/>
             <fieldset id="login_fs">
                 <legend>관리자 로그인</legend>
                 <div id="login_frm">
