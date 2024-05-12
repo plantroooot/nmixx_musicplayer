@@ -10,9 +10,9 @@ class DBConnection {
 	function __construct($target = "default") {
 		// 기본 DB접속
 		
-		$db['default']['hostname'] = 'localhost';
+		$db['default']['hostname'] = '3.38.245.38';
 		$db['default']['username'] = 'root';
-		$db['default']['password'] = 'dksktkd12#';
+		$db['default']['password'] = 'nmixx2nd1234';
 		$db['default']['database'] = 'mixxplayer';
 
 		$this->hostname = $db[$target]['hostname'];
