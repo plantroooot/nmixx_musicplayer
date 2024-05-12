@@ -93,6 +93,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
 
             </section>
 			<input type="hidden" name="cmd" id="cmd" value="<?php echo isset($_REQUEST['no']) && $_REQUEST['no'] ? 'EDIT' : 'WRITE'?>"/> 
+			<input type="hidden" name="brd_id" id="brd_id" value="<?php echo $data['brd_id']; ?>"/> 
             <div class="btn_fixed_top">
                 <a href="<?=$board->getQueryString('index.php', 0, $_REQUEST)?>" class="btn_02 btn">목록</a>
                 <input type="submit" value="등록" class="btn_submi btn btn_01" accesskey="s">

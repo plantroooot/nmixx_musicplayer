@@ -8,6 +8,20 @@ include "config.php";
 
 $board = new Board($pageRows, $tablename, $_REQUEST);
 
+$_POST = xss_clean($_POST);
+
+$cmd = $_POST['cmd'];
+
+$updatedata = array(
+	'brd_title' => $_POST['brd_title'], // 게시판 제목
+	'brd_code' => $_POST['brd_code'], // 게시판 코드
+	'brd_file' => $_POST['brd_file'], // 첨부파일 사용
+	'brd_filecnt' => $_POST['brd_filecnt'], // 첨부파일 개수
+	'brd_link' => $_POST['brd_link'], // 관련링크 사용
+	'brd_linkcnt' => $_POST['brd_linkcnt'], // 관련링크 개수
+	'brd_newdate' => $_POST['brd_newdate'] // new아이콘 보이기
+);
+
 ?>
 <!doctype html>
 <html lang="ko">
@@ -19,9 +33,7 @@ $board = new Board($pageRows, $tablename, $_REQUEST);
 
 if (checkReferer($_SERVER["HTTP_REFERER"])) {
 	
-	if ($_REQUEST['cmd'] == 'WRITE') {
-
-        $_POST = xss_clean($_POST);
+	if ($cmd == 'WRITE') {
         
         $r = $board->insert($_POST);
 

@@ -8,6 +8,12 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/Board.class.php";
 include $_SERVER['DOCUMENT_ROOT']."/admin/include/loginCheck.php";
 include "config.php";
 
+/*
+| ----------------------------------------------------------------------------------------
+| 게시판 리스트
+| ----------------------------------------------------------------------------------------
+*/
+
 $board = new Board($pageRows, $tablename, $_REQUEST);
 $rowPageCount = $board->getCount($_REQUEST);
 $result = $board->getList($_REQUEST);
@@ -75,7 +81,6 @@ function groupDelete() {
                         <col width="200px" />
                         <col width="200px" />
                         <col width="200px" />
-                        <col width="200px" />
                         <col width="14%" />
                         <col width="7%" />
                     </colgroup>
@@ -88,7 +93,6 @@ function groupDelete() {
                             <th scope="col">번호</th>
                             <th scope="col">게시판 이름</th>
                             <th scope="col">첨부파일</th>
-                            <th scope="col">카테고리</th>
                             <th scope="col">관련링크</th>
                             <th scope="col">작성일</th>
                             <th scope="col">관리</th>
@@ -109,21 +113,14 @@ function groupDelete() {
                             <td><?php echo $rowPageCount[0] - (($board->reqPageNo-1)*$pageRows) - $key?></td>
                             <td><?php echo $row['brd_title']?></td>
                             <td>
-                                <?if($row['P_file'] == 1){?>
+                                <?if($row['brd_file'] == 1){?>
                                     <span>사용(<?php echo $row['brd_filecnt'] ?>)</span>
                                 <?}else{?>
                                     <span>미사용</span>
                                 <?}?>
                             </td>
                             <td>
-                                <?if($row['brd_category'] == 1){?>
-                                    <span>사용</span>
-                                <?}else{?>
-                                    <span>미사용</span>
-                                <?}?>
-                            </td>
-                            <td>
-                                <?if($row['P_link'] == 1){?>
+                                <?if($row['brd_link'] == 1){?>
                                     <span>사용(<?php echo $row['brd_linkcnt'] ?>)</span>
                                 <?}else{?>
                                     <span>미사용</span>
