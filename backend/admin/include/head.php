@@ -14,11 +14,13 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
     <title><?=COMPANY_NAME?></title>
     <link rel="stylesheet" href="/admin/css/reset.css">
     <link rel="stylesheet" href="/admin/css/content.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="/css/datepicker.css"/>
     <script src="/admin/js/jquery-1.12.0.min.js"></script>
     <script src="/admin/js/jquery-ui.min.js"></script>
+    
     <script type="text/javascript" src="/admin/js/function.js"></script>
+    <script type="text/javascript" src="/admin/js/datepicker.js"></script>
     <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>

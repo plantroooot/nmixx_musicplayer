@@ -305,7 +305,7 @@ tfoot th {}
 .tbl_head01 thead a {color:#383838;text-decoration:underline}
 .tbl_head01 tbody th{border:1px solid #d6dce7;padding:5px;text-align:center}
 .tbl_head01 tbody td{border:1px solid #d6dce7;padding:5px;text-align:center}
-.tbl_head01 tbody tr:nth-child(even){background:#eff3f9}
+/* .tbl_head01 tbody tr:nth-child(even){background:#eff3f9} */
 .tbl_head01 tbody td .frm_input{width:100%;}
 .tbl_head01 tbody td select{width:100%}
 .tbl_head01 table .tbl_input{height:27px;line-height:25px;border:1px solid #d5d5d5;width:100%}
@@ -1128,3 +1128,11 @@ box-shadow: 1px 2px 5px rgba(150,150,150,0.5);z-index:1000}
 #login_info .login_if_auto {float:left}
 #login_info .login_if_auto label {vertical-align:baseline;padding-left:5px}
 #login_info .login_if_lpl {float:right}
+
+
+.txt_l{text-align:left !important;}
+.txt_c{text-align:center !important;}
+.txt_r{text-align:right !important;}
+.ver_t{vertical-align:top !important;}
+.txt_b{font-weight:bold !important;}
+.txt_line{text-decoration:underline !important;}

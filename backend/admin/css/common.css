@@ -76,8 +76,12 @@ select::-ms-expand { display:none; }
 .fileBox .fileBtn label{display:inline-block;width:110px;font-size:14px;line-height:40px; height:40px; letter-spacing:-1px;color:#fff;background:#999;text-align:center; border-radius: 4px;  box-sizing: border-box;}
 .fileBox .fileBtn input[type="file"]{visibility:hidden;width:0;height:0;padding:0;margin:0;}
 
-
-
+.txt_l{text-align:left !important;}
+.txt_c{text-align:center !important;}
+.txt_r{text-align:right !important;}
+.ver_t{vertical-align:top !important;}
+.txt_b{font-weight:bold !important;}
+.txt_line{text-decoration:underline !important;}
 
 .wid10{width:10%;}
 .wid20{width:20%;}

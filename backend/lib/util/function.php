@@ -1,6 +1,7 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/Board.class.php";
 
 // 메시지를 alert하고 rurl로 이동
 function returnURLMsg($rurl = "", $msg = "") {
@@ -412,6 +413,96 @@ function objToArray($obj){
 	}
 }
 
+function arrayComma($array = '') {
+    $values = array_map(function($value) {
+        if ($value === null || $value === '') {
+            return 'null';
+        } else {
+            return "'$value'";
+        }
+    }, $array); // value값 ''붙이기
 
+    return $values;
+}
+
+
+function insert_query($table='', $req=''){
+
+	$req = escape_string($req);
+
+	$keys = array_keys($req); // 필드명
+	$values = arrayComma(array_values($req)); // 필드에 들어갈 데이터	
+
+	$sql_field = implode(',', $keys); // 필드명 정리
+	$sql_values = implode(',', $values); // 데이터값 정리
+
+	
+	// insert쿼리 생성
+	$query = "INSERT INTO ".$table." (".$sql_field.") VALUES (".$sql_values.")";
+
+	return $query;
+	
+}
+
+function update_query($table='', $primary_key='', $no=0, $req=''){
+
+	$update_values = '';
+	$req = escape_string($req);
+
+	$keys = array_keys($req); // 필드명
+	$values = arrayComma(array_values($req)); // 필드에 들어갈 데이터
+
+	for($k = 0; $k < count($req); $k++){
+		$update_values .= $keys[$k]."=".$values[$k].',';
+	}
+	$update_values = substr($update_values, 0, -1); // 마지막 ,제거
+
+	$where_sql = ' WHERE '.$primary_key.'='.$no;
+
+	$query = "UPDATE ".$table." SET ".$update_values.$where_sql;
+
+	return $query;
+
+}
+
+function get_board_list(){
+	$board = new Board(9999, 'board', $_REQUEST);
+	$rowPageCount = $board->getCount($_REQUEST);
+	$result = $board->getBoardGnb($_REQUEST);
+	$html = '';
+
+	if($result){
+		foreach($result as $key => $row){
+			$html .= "
+				<li>
+					<a href='/admin/post/?bcode=".$row['brd_code']."' class='gnb_2da'>".$row['brd_title']."</a>
+				</li>
+			";
+		}
+	}
+
+	return $html;
+
+}
+
+function getPostLink($array, $linkcnt){
+
+	$setLinks = array();
+
+	for($j = 0; $j < strval($linkcnt); $j++){
+		if($_POST['post_link_'.strval($j+1)] != ""){
+			$setLinks[$j]['post_link_'.strval($j+1)] = $_POST['post_link_'.strval($j+1)];
+		}else{
+			$setLinks[$j]['post_link_'.strval($j+1)]  = "";
+		}
+	}
+	
+	if(count($setLinks) > 0){
+		return json_encode($setLinks, JSON_UNESCAPED_UNICODE);
+	}else{
+		echo "관련 링크 생성 실패";
+		exit;
+	}
+}
 
 ?>

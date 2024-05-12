@@ -10,7 +10,28 @@ include $_SERVER['DOCUMENT_ROOT']."/admin/include/head.php";
 ?>
 <script>
 $(window).load(function(){
-	
+	var title = '<?php echo $pageTitle?>';
+
+    // console.log(title);
+
+    $('#hd .gnb_ul').find('li').each(function(){
+		// var txt=$(this).children('a').text().replace(/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\''\\]/g,"");
+		// if( txt.replaceAll(" ","") == title.replaceAll(" ", "") ){
+		// 	$(this).children('a').addClass('on');
+		// }
+
+        if( $(this).find('ul').length > 0 ){
+			$(this).find('li').each(function(){
+				if( $(this).children('.gnb_2da').text().replaceAll(" ","") == title.replaceAll(" ","") ){
+					$(this).children('.gnb_2da').addClass('on');
+					$(this).parents('li').addClass('on');
+				}
+			});
+		}
+    });
+
+
+
 });
 
 </script>
@@ -36,7 +57,7 @@ $(window).load(function(){
     <nav id="gnb" class="gnb_large">
         <h2>관리자 주메뉴</h2>
         <ul class="gnb_ul">            
-            <li class="gnb_li on">
+            <li class="gnb_li">
                 <button type="button" class="btn_op menu-300 menu-order-1" title="게시판관리">게시판관리</button>
                 <div class="gnb_oparea_wr">
                     <div class="gnb_oparea">
@@ -44,9 +65,6 @@ $(window).load(function(){
                         <ul>
                             <li>
                                 <a href="/admin/board/" class="gnb_2da">게시판관리</a>
-                            </li>
-                            <li>
-                                <a href="/admin/post/" class="gnb_2da"></a>
                             </li>
                         </ul>                        
                     </div>
@@ -58,9 +76,7 @@ $(window).load(function(){
                     <div class="gnb_oparea">
                         <h3>컨텐츠관리</h3>
                         <ul>
-                            <li>
-                                <a href="" class="gnb_2da">기본환경설정</a>
-                            </li>
+                            <?php echo get_board_list(); ?>
                         </ul>                        
                     </div>
                 </div>
@@ -111,6 +127,8 @@ $(window).load(function(){
         $(".gnb_ul li .btn_op").click(function() {
             $(this).parent().addClass("on").siblings().removeClass("on");
         });
+
+        
 
     });
 </script>

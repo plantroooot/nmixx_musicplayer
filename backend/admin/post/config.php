@@ -1,10 +1,11 @@
 <?
-	$pageTitle			= "게시판관리";
-	$pageWriteTitle		= "게시판 생성";
-	$pageEditTitle		= "게시판 수정";
-	$tablename			= "board";
+	$pageViewTitle		= "게시글 상세";
+	$pageWriteTitle		= "게시글 등록";
+	$pageEditTitle		= "게시글 수정";
+	$tablename			= "post";
 	$pageRows			= 10;
-	$uploadPath			= "/upload/board/";			// 파일, 동영상 첨부 경로
+	$primary_key		= "post_id";
+	$uploadPath			= "/upload/post/";			// 파일, 동영상 첨부 경로
 	
 	$maxSaveSize		= 50*1024*1024;					// 50Mb
 	$userCon			= false;
