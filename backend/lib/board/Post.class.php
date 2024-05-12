@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/function.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/db/DBConnection.class.php";
 
-class Board {
+class Post {
 
 	// 검색 파라미터 (초기 개발시 검색조건 세팅필요)
 	var $param = array (
@@ -17,7 +17,8 @@ class Board {
 		"sval",
 		"sdateType",
 		"sstartdate",
-		"senddate"
+		"senddate",
+		"bcode"
 	);
 	var $tableName;			// 테이블명
 	var $pageRows;			// 페이지 로우수
@@ -82,7 +83,7 @@ class Board {
 
 	// sql WHERE절 생성
 	function getWhereSql($p) {
-		$whereSql = " WHERE 1=1 AND brd_delyn = 'N'";
+		$whereSql = " WHERE 1=1 AND post_delyn = 'N'";
 
 
 		if (isset($p['sval'])) {
@@ -115,7 +116,7 @@ class Board {
 		$param = escape_string($param);
 		
 		$whereSql = $this->getWhereSql($param);	// where절
-		$sql = " SELECT COUNT(*) AS cnt FROM board".$whereSql;
+		$sql = " SELECT COUNT(*) AS cnt FROM ".$this->tableName."".$whereSql;
 
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
@@ -146,13 +147,14 @@ class Board {
 		// 	ORDER BY top DESC, registdate DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
 
 		$sql = "
-			SELECT *, 
-			(SELECT COUNT(*) FROM post WHERE brd_id = board.brd_id AND post_delyn = 'N') AS data_cnt
-			FROM ".$this->tableName." WHERE brd_delyn = 'N' ORDER BY brd_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." 
-		";
+			SELECT *
+			FROM ".$this->tableName."
+			".$whereSql."
+			ORDER BY post_top DESC, post_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
 
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
+		
 		
 		$list = rstToArray($result);
 
@@ -192,7 +194,7 @@ class Board {
 		$dbconn = new DBConnection();
 		$conn = $dbconn->getConnection();
 
-		$sql = "UPDATE ".$this->tableName." SET brd_delyn = 'Y' WHERE brd_id = ".$no;
+		$sql = "UPDATE ".$this->tableName." SET post_delyn = 'Y' WHERE post_id = ".$no;
 
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
@@ -207,25 +209,7 @@ class Board {
 		$sql = "
 			SELECT *
 			FROM ".$this->tableName."
-			WHERE brd_id = ".$no;
-		
-		$result = mysqli_query($conn, $sql);
-		mysqli_close($conn);
-		
-		$data = mysqli_fetch_assoc($result);
-
-		return $data;
-	}
-
-	// 목록
-	function getBoardData($code='') {
-		$dbconn = new DBConnection();
-		$conn = $dbconn->getConnection();
-
-		$sql = "
-			SELECT *
-			FROM ".$this->tableName."
-			WHERE brd_code = '".$code."'";
+			WHERE ".$this->primary_key." = ".$no;
 		
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);

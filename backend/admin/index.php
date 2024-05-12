@@ -93,29 +93,31 @@ $(function(){
 </head>
 <body onload="$('#id').focus();">
     <div id="mb_login" class="mbskin">
-        <h1><?=COMPANY_NAME?> 관리자모드</h1>
-
-        <form name="flogin" action="/admin/include/login.php" method="post" id="flogin">
-				<input type="hidden" name="url" id="url"/>
-				<input type="hidden" name="param" id="param"/>
-            <fieldset id="login_fs">
-                <legend>관리자 로그인</legend>
-                <div id="login_frm">
-                    <label for="login_id" class="sound_only">아이디<strong class="sound_only"> 필수</strong></label>
-                    <input type="text" name="mb_id" id="login_id" placeholder="아이디" required class="frm_input required" maxLength="20">
-                    <label for="login_pw" class="sound_only">비밀번호<strong class="sound_only"> 필수</strong></label>
-                    <input type="password" name="mb_password" id="login_pw" placeholder="비밀번호" required class="frm_input required" maxLength="20">
-                    
-                    <button type="submit" class="btn_submit">로그인</button>
-                    <div id="login_info" class="chk_box">
-                        <div class="login_if_auto chk_box">
-                            <input type="checkbox" name="auto_login" id="login_auto_login" class="selec_chk">
-                            <label for="login_auto_login"><span></span> 자동로그인</label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
+		<h1><?=COMPANY_NAME?> 관리자모드</h1>
+		<div class="mbskin_box">
+	
+			<form name="flogin" action="/admin/include/login.php" method="post" id="flogin">
+					<input type="hidden" name="url" id="url"/>
+					<input type="hidden" name="param" id="param"/>
+				<fieldset id="login_fs">
+					<legend>관리자 로그인</legend>
+					<div id="login_frm">
+						<label for="login_id" class="sound_only">아이디<strong class="sound_only"> 필수</strong></label>
+						<input type="text" name="mb_id" id="login_id" placeholder="아이디" required class="frm_input required" maxLength="20">
+						<label for="login_pw" class="sound_only">비밀번호<strong class="sound_only"> 필수</strong></label>
+						<input type="password" name="mb_password" id="login_pw" placeholder="비밀번호" required class="frm_input required" maxLength="20">
+						
+						<button type="submit" class="btn_submit">로그인</button>
+						<div id="login_info" class="chk_box">
+							<div class="login_if_auto chk_box">
+								<input type="checkbox" name="auto_login" id="login_auto_login" class="selec_chk">
+								<label for="login_auto_login"><span></span> 자동로그인</label>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
     </div>
 </body>
 </html>
