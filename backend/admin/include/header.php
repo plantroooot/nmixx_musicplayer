@@ -29,15 +29,12 @@ $(window).load(function(){
 			});
 		}
     });
-
-
-
 });
 
 </script>
 <div id="bodyWrap">
 <header id="hd">
-    <h1><?php echo COMPANY_NAME ?> 관리자"></h1>
+    <h1><?php echo COMPANY_NAME ?> 관리자</h1>
     <div id="hd_top">
         <button type="button" id="btn_gnb" class="btn_gnb_close">메뉴</button>
         <div id="logo"><a href="/admin/dashboard/"><img src="/admin/img/logo.png" alt="<?php echo COMPANY_NAME ?> 관리자"></a></div>
@@ -80,7 +77,7 @@ $(window).load(function(){
                                 <a href="/admin/seo/" class="gnb_2da">메뉴 관리</a>
                             </li>
                             <li>
-                                <a href="/admin/board/" class="gnb_2da">SEO설정 관리</a>
+                                <a href="/admin/seo/settings/" class="gnb_2da">SEO설정 관리</a>
                             </li>
                         </ul>                        
                     </div>
