@@ -67,7 +67,7 @@ $(document).on('change', '#seo_parent', function(){
 
     <!-- 등록정보 -->
     <div class="container_wr">
-        <form name="fboardlist" id="fboardlist" action="process.php" method="post">
+        <form name="fboardlist" id="fboardlist" action="/admin/seo/process.php" method="post">
             <div class="tbl_head01 tbl_wrap">
                 <h2 class="h2_frm" style="margin-top: 0;">등록정보</h2>
                 <table>
