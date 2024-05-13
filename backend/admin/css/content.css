@@ -296,6 +296,9 @@ tfoot th {}
 
 .tbl_wrap {margin:0 0 10px;padding:0}
 
+.tbl_wrap .menu_children{display: flex; gap: 4px;}
+.tbl_wrap .menu_children > span{padding-top: 4px; box-sizing: border-box; display: flex;}
+
 /* thead 한 줄 테이블 */
 .tbl_head01 {}
 .tbl_head01 table {clear:both;width:100%;border-collapse:collapse;border-spacing:0}
@@ -1136,3 +1139,4 @@ box-shadow: 1px 2px 5px rgba(150,150,150,0.5);z-index:1000}
 .ver_t{vertical-align:top !important;}
 .txt_b{font-weight:bold !important;}
 .txt_line{text-decoration:underline !important;}
+

@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/function.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/db/DBConnection.class.php";
 
-class Post {
+class Seo {
 
 	// 검색 파라미터 (초기 개발시 검색조건 세팅필요)
 	var $param = array (
@@ -83,7 +83,7 @@ class Post {
 
 	// sql WHERE절 생성
 	function getWhereSql($p) {
-		$whereSql = " WHERE 1=1 AND post_delyn = 'N' AND brd_code = '".$p['bcode']."'";
+		$whereSql = " WHERE 1=1";
 
 		if (isset($p['sval'])) {
 			if(isset($p['stype'])){
@@ -129,6 +129,27 @@ class Post {
 
 		return $data;
 	}
+	
+	// 전체 메뉴
+	function getListAll($param='') {
+		$dbconn = new DBConnection();
+		$conn = $dbconn->getConnection(); //DB CONNECT
+		$param = escape_string($param);	
+		$whereSql = $this->getWhereSql($param);	// where절
+
+		$sql = "
+			SELECT *
+			FROM ".$this->tableName."
+			".$whereSql."
+			ORDER BY seo_order ASC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
+
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);		
+		
+		$list = rstToArray($result);
+
+		return $list;
+	}
 
 	// 목록
 	function getList($param='') {
@@ -136,28 +157,56 @@ class Post {
 		$conn = $dbconn->getConnection(); //DB CONNECT
 		$param = escape_string($param);	
 		$whereSql = $this->getWhereSql($param);	// where절
-		
-
-		// $sql = "
-		// 	SELECT *, 
-		// 		(SELECT COUNT(*) FROM comment WHERE tablename = '".$this->tableName."' AND parent_fk = ".$this->tableName.".no) AS comment_count
-		// 	FROM ".$this->tableName."
-		// 	".$whereSql."
-		// 	ORDER BY top DESC, registdate DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
 
 		$sql = "
 			SELECT *
 			FROM ".$this->tableName."
 			".$whereSql."
-			ORDER BY post_top DESC, post_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
+			AND seo_parent = 0
+			AND seo_depth = 1
+			ORDER BY seo_order ASC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
 
 		$result = mysqli_query($conn, $sql);
-		mysqli_close($conn);
-		
+		mysqli_close($conn);		
 		
 		$list = rstToArray($result);
 
+		// depth2, depth3추가
+		foreach($list as $key => $val){
+			// depth2
+			$list2 = $this->getChildrenList($list[$key]['seo_id'], 2);
+			$list[$key]['depth2'] = $list2;
+
+			// depth3
+			foreach($list2 as $key2 => $val2){
+				$list3 = $this->getChildrenList($list[$key]['depth2'][$key2]['seo_id'], 3);
+				$list[$key]['depth2'][$key2]['depth3'] = $list3;
+			}
+		}
+
 		return $list;
+	}
+
+	// 하위메뉴
+	function getChildrenList($no, $depth){
+		$dbconn = new DBConnection();
+		$conn = $dbconn->getConnection(); //DB CONNECT
+		$param = escape_string($param);	
+		$whereSql = $this->getWhereSql($param);	// where절
+
+		$sql = "
+			SELECT *
+			FROM ".$this->tableName."
+			WHERE seo_parent = ".$no."
+			AND seo_depth = ".$depth."
+			ORDER BY seo_order ASC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
+
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);		
+		
+		$list = rstToArray($result);
+		return $list;
+
 	}
 
 	// 관리자 등록
@@ -194,6 +243,18 @@ class Post {
 		$conn = $dbconn->getConnection();
 
 		$sql = "UPDATE ".$this->tableName." SET post_delyn = 'Y' WHERE post_id = ".$no;
+
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);
+		return $result;
+	}
+
+	// 삭제
+	function delete_complete($no=0) {
+		$dbconn = new DBConnection();
+		$conn = $dbconn->getConnection();
+
+		$sql = "DELETE FROM ".$this->tableName." WHERE seo_id = ".$no;
 
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);

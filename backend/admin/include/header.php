@@ -71,6 +71,22 @@ $(window).load(function(){
                 </div>
             </li>  
             <li class="gnb_li">
+                <button type="button" class="btn_op menu-100 menu-order-1" title="SEO관리">SEO관리</button>
+                <div class="gnb_oparea_wr">
+                    <div class="gnb_oparea">
+                        <h3>SEO관리</h3>
+                        <ul>
+                            <li>
+                                <a href="/admin/seo/" class="gnb_2da">메뉴 관리</a>
+                            </li>
+                            <li>
+                                <a href="/admin/board/" class="gnb_2da">SEO설정 관리</a>
+                            </li>
+                        </ul>                        
+                    </div>
+                </div>
+            </li>  
+            <li class="gnb_li">
                 <button type="button" class="btn_op menu-order-1" title="컨텐츠관리">컨텐츠관리</button>
                 <div class="gnb_oparea_wr">
                     <div class="gnb_oparea">
