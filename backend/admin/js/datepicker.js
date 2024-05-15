@@ -63,4 +63,8 @@ $(function(){
 		//     $('.datepicker2').val(datetext);
 		// }
 	});
+	$(".datetimepicker1").datetimepicker({ 
+		format: "Y-m-d H:i:00",
+		step : 5
+	});
 });

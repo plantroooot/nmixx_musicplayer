@@ -16,8 +16,8 @@ $brd_data = $board->getBoardData($_POST['bcode'], false);
 $_POST = xss_clean($_POST);
 
 $cmd = $_POST['cmd'];
-if($_POST['brd_id']){
-	$no = $_POST['brd_id'];
+if($_POST['post_id']){
+	$no = $_POST['post_id'];
 }
 
 $post_title = isset($_POST['post_title']) ? $_POST['post_title'] : null; // 게시글 제목(국문)

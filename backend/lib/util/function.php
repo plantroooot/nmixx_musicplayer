@@ -519,5 +519,19 @@ function getPostLink($array, $linkcnt){
 	}
 }
 
+function getVoteStatus($type){
+	switch($type){
+		case 1 :
+		return "진행중";
+		break;
+		case 2 :
+		return "시작전";
+		break;
+		case 3 :
+		return "종료";
+		break;
+	}
+}
+
 
 ?>

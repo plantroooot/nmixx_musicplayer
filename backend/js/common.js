@@ -78,8 +78,6 @@ $(function(){
 
 
 
-
-
 /* 삭제하지 말것 */
 String.prototype.replaceAll = function(org, dest) {
     return this.split(org).join(dest);

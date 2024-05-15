@@ -90,6 +90,12 @@ $(window).load(function(){
                         <h3>컨텐츠관리</h3>
                         <ul>
                             <?php echo get_board_list(); ?>
+                            <li>
+                                <a href="/admin/official_info/" class="gnb_2da">공식계정 관리</a>
+                            </li>
+                            <li>
+                                <a href="/admin/schedule/" class="gnb_2da">스케줄 관리</a>
+                            </li>
                         </ul>                        
                     </div>
                 </div>

@@ -12,14 +12,23 @@ $_POST = xss_clean($_POST);
 
 $cmd = $_POST['cmd'];
 
-$seo_name = isset($_POST['seo_name']) ? $_POST['seo_name'] : null;              // 메뉴명
-$seo_name_en = isset($_POST['seo_name_en']) ? $_POST['seo_name_en'] : null;     // 메뉴명(영문)
-$seo_url = isset($_POST['seo_url']) ? $_POST['seo_url'] : null;                 // 링크주소
-$seo_order = isset($_POST['seo_order']) ? $_POST['seo_order'] : 1;              // 순서
-$seo_is_blank = isset($_POST['seo_is_blank']) ? $_POST['seo_is_blank'] : 'N';   // 새창여부
-$seo_activated = isset($_POST['seo_activated']) ? $_POST['seo_activated'] : 'N';// 노출여부
-$seo_parent = isset($_POST['seo_parent']) ? $_POST['seo_parent'] : 0;           // 상위메뉴 PK
-$seo_depth = isset($_POST['seo_depth']) ? $_POST['seo_depth'] : 1;           // depth
+$seo_name = isset($_POST['seo_name']) ? $_POST['seo_name'] : null;              					// 메뉴명
+$seo_name_en = isset($_POST['seo_name_en']) ? $_POST['seo_name_en'] : null;     					// 메뉴명(영문)
+$seo_url = isset($_POST['seo_url']) ? $_POST['seo_url'] : null;                 					// 링크주소
+$seo_order = isset($_POST['seo_order']) ? $_POST['seo_order'] : 1;              					// 순서
+$seo_is_blank = isset($_POST['seo_is_blank']) ? $_POST['seo_is_blank'] : 'N';   					// 새창여부
+$seo_activated = isset($_POST['seo_activated']) ? $_POST['seo_activated'] : 'N';					// 노출여부
+$seo_parent = isset($_POST['seo_parent']) ? $_POST['seo_parent'] : 0;           					// 상위메뉴 PK
+$seo_depth = isset($_POST['seo_depth']) ? $_POST['seo_depth'] : 1;           						// depth
+
+
+
+$seo_title = isset($_POST['seo_title']) ? $_POST['seo_title'] : null;           					// 타이틀
+$seo_title_en = isset($_POST['seo_title_en']) ? $_POST['seo_title_en'] : null;						// 타이틀(영문)
+$seo_description = isset($_POST['seo_description']) ? $_POST['seo_description'] : null;    			// 설명
+$seo_description_en = isset($_POST['seo_description_en']) ? $_POST['seo_description_en'] : null;    // 설명(영문)
+$seo_keywords = isset($_POST['seo_keywords']) ? $_POST['seo_keywords'] : null;           			// 키워드
+$seo_keywords_en = isset($_POST['seo_keywords_en']) ? $_POST['seo_keywords_en'] : null;          	// 키워드(영문)
 
 $updatedata = array(
 	'seo_name' => $seo_name,
@@ -57,7 +66,6 @@ if (checkReferer($_SERVER["HTTP_REFERER"])) {
 		
 
 	} else if ($cmd == 'EDIT') {
-
         
         $chk = $_POST['chk'];
 
@@ -82,6 +90,33 @@ if (checkReferer($_SERVER["HTTP_REFERER"])) {
 			echo returnURLMsg($seo->getQueryString(getRemoviSslUrl($_SERVER["REQUEST_URI"], 'index.php'), 0, $_REQUEST), '총 '.$r.'건이 수정되었습니다.');
 		} else {
 			echo returnURLMsg($seo->getQueryString(getRemoviSslUrl($_SERVER["REQUEST_URI"], 'index.php'), 0, $_POST), '요청처리중 장애가 발생하였습니다.');
+		}
+	
+	} else if ($cmd == 'METAEDIT') {
+		
+        $chk = $_POST['chk'];
+
+		$r = 0;
+		for ($i=0; $i<count($chk); $i++) {
+
+            $updatedata = array(
+                'seo_title' => $seo_title[$chk[$i]],
+                'seo_title_en' => $seo_title_en[$chk[$i]],
+                'seo_description' => $seo_description[$chk[$i]],
+                'seo_description_en' => $seo_description_en[$chk[$i]],
+                'seo_keywords' => $seo_keywords[$chk[$i]],
+                'seo_keywords_en' => $seo_keywords_en[$chk[$i]]
+            );
+            
+            $r += $seo->update($chk[$i], $updatedata);
+		}
+
+		$updatedata['post_updatetime'] = date('Y-m-d H:i:s');
+
+		if ($r > 0) {
+			echo returnURLMsg($seo->getQueryString(getRemoviSslUrl($_SERVER["REQUEST_URI"], 'settings/index.php'), 0, $_REQUEST), '총 '.$r.'건이 수정되었습니다.');
+		} else {
+			echo returnURLMsg($seo->getQueryString(getRemoviSslUrl($_SERVER["REQUEST_URI"], 'settings/index.php'), 0, $_POST), '요청처리중 장애가 발생하였습니다.');
 		}
 	
 	} else if ($cmd == 'GROUPDELETE') {

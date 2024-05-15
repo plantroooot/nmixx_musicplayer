@@ -146,7 +146,8 @@ class Post {
 		// 	ORDER BY top DESC, registdate DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
 
 		$sql = "
-			SELECT *
+			SELECT *,			
+			(SELECT CASE WHEN post_startdate > NOW() THEN '2' WHEN post_enddate < NOW() THEN '3' ELSE '1' END AS status) AS post_vote_status
 			FROM ".$this->tableName."
 			".$whereSql."
 			ORDER BY post_top DESC, post_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";

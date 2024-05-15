@@ -82,3 +82,11 @@ function setEditor(holder){
 	
 	return oEditors;
 }
+
+function openPopup(id){
+	$('#'+id).css('display', 'block');
+}
+
+function closePopup(id){
+	$('#'+id).css('display', 'none');
+}

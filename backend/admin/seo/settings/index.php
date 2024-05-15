@@ -30,7 +30,7 @@ function groupEdit() {
 	if ( $('input:checkbox[name="chk[]"]:checked').length > 0 ){
 
 		if (confirm("선택한 항목을 수정하시겠습니까?")) {			
-            $('input#cmd').val('EDIT');
+            $('input#cmd').val('METAEDIT');
 			document.fboardlist.submit();
 		}
         
@@ -39,32 +39,9 @@ function groupEdit() {
 	}
 }
 
-function groupDelete() {	
-	if ( $('input:checkbox[name="chk[]"]:checked').length > 0 ){
-
-		if (confirm("선택한 항목을 삭제하시겠습니까?")) {			
-            $('input#cmd').val('GROUPDELETE');
-			document.fboardlist.submit();
-		}
-        
-	} else {
-		alert("삭제할 항목을 하나 이상 선택해 주세요.");
-	}
-}
-
-$(document).on('change', '#seo_parent', function(){
-    let parent2 = $('#seo_parent option:selected').attr('data-parent2');
-    let depth = $('#seo_parent option:selected').attr('data-depth');
-
-    $('#seo_parent2').val(parent2);
-    $('#seo_depth').val(parseInt(depth)+1);
-});
-
 </script>
 <div id="container" class="">
     <h1 id="container_title"><?php echo $pageTitle?></h1>
-
-
     <!-- 등록정보 -->
     <div class="container_wr">
         <form name="fboardlist" id="fboardlist" action="/admin/seo/process.php" method="post">
@@ -73,13 +50,16 @@ $(document).on('change', '#seo_parent', function(){
                 <table>
                     <caption>등록정보</caption>
                     <colgroup>
-                        <col width="50px" />
-                        <col width="15%" />
-                        <col width="15%" />
-                        <col width="*" />
-                        <col width="3%" />
+                        <col width="75px" />
+                        <col width="7%" />
+                        <col width="7%" />
                         <col width="8%" />
-                        <col width="8%" />
+                        <col width="9%" />
+                        <col width="9%" />
+                        <col width="13%" />
+                        <col width="13%" />
+                        <col width="16%" />
+                        <col width="16%" />
                     </colgroup>
                     <thead>
                         <tr>
@@ -90,9 +70,12 @@ $(document).on('change', '#seo_parent', function(){
                             <th scope="col">메뉴명</th>
                             <th scope="col">메뉴명(영문)</th>
                             <th scope="col">링크주소</th>
-                            <th scope="col">순서</th>
-                            <th scope="col">새창여부</th>
-                            <th scope="col">노출여부</th>
+                            <th scope="col">title</th>
+                            <th scope="col">title(영문)</th>
+                            <th scope="col">description</th>
+                            <th scope="col">description(영문)</th>
+                            <th scope="col">keywords</th>
+                            <th scope="col">keywords(영문)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -110,35 +93,35 @@ $(document).on('change', '#seo_parent', function(){
                                 <label for="chk_<?php echo $row['seo_id']; ?>" class="sound_only"></label>
                                 <input type="checkbox" name="chk[]" value="<?php echo $row['seo_id']; ?>" id="chk_<?php echo $row['seo_id']; ?>">
                             </td>
-                            <td>
-                                <label for="seo_name_<?php echo $row['seo_id']; ?>" class="sound_only">메뉴명<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_name[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_name']; ?>" id="seo_name_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
+                            <td class="txt_l"><?php echo $row['seo_name']; ?></td>
+                            <td class="txt_l"><?php echo $row['seo_name_en']; ?></td>
+                            <td class="txt_l">
+                                <a href="<?php echo $row['seo_url']; ?>" target="_blank"><?php echo $row['seo_url']; ?></a>
                             </td>
                             <td>
-                                <label for="seo_name_en_<?php echo $row['seo_id']; ?>" class="sound_only">메뉴명<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_name_en[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_name_en']; ?>" id="seo_name_en_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
+                                <label for="seo_title_<?php echo $row['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_title[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_title']; ?>" id="seo_title_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_url_<?php echo $row['seo_id']; ?>" class="sound_only">링크주소<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_url[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_url']; ?>" id="seo_url_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
+                                <label for="seo_title_en_<?php echo $row['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_title_en[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_title_en']; ?>" id="seo_title_en_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
+                            </td>
+                            
+                            <td>
+                                <label for="seo_description_<?php echo $row['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_description[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_description']; ?>" id="seo_description_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_order_<?php echo $row['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_order[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_order']; ?>" id="seo_order_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
+                                <label for="seo_description_en_<?php echo $row['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_description_en[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_description_en']; ?>" id="seo_description_en_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
+                            </td>                            
+                            <td>
+                                <label for="seo_keywords_<?php echo $row['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_keywords[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_keywords']; ?>" id="seo_keywords_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_is_blank_<?php echo $row['seo_id']; ?>" class="sound_only">새창여부</label>
-                                <select name="seo_is_blank[<?php echo $row['seo_id']; ?>]" id="seo_is_blank_<?php echo $row['seo_id']; ?>">
-                                    <option value="Y" <?php echo $row['seo_is_blank'] == 'Y' ? 'selected' : '';?>>사용함</option>
-                                    <option value="N" <?php echo $row['seo_is_blank'] == 'N' ? 'selected' : '';?>>사용안함</option>
-                                </select>
-                            </td>
-                            <td>
-                                <label for="seo_activated_<?php echo $row['seo_id']; ?>" class="sound_only">노출여부</label>
-                                <select name="seo_activated[<?php echo $row['seo_id']; ?>]" id="seo_activated_<?php echo $row['seo_id']; ?>">
-                                    <option value="Y" <?php echo $row['seo_activated'] == 'Y' ? 'selected' : '';?>>사용함</option>
-                                    <option value="N" <?php echo $row['seo_activated'] == 'N' ? 'selected' : '';?>>사용안함</option>
-                                </select>
+                                <label for="seo_keywords_en_<?php echo $row['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_keywords_en[<?php echo $row['seo_id']; ?>]" value="<?php echo $row['seo_keywords_en']; ?>" id="seo_keywords_en_<?php echo $row['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                         </tr>
                         <?php
@@ -150,44 +133,47 @@ $(document).on('change', '#seo_parent', function(){
                                 <label for="chk_<?php echo $row2['seo_id']; ?>" class="sound_only"></label>
                                 <input type="checkbox" name="chk[]" value="<?php echo $row2['seo_id']; ?>" id="chk_<?php echo $row2['seo_id']; ?>">
                             </td>
-                            <td>
+                            <td class="txt_l">
                                 <div class="menu_children">
                                     <span>
                                         <span>
-                                            <img src="/admin/img/menulist_sub.png" alt="depth2">
+                                            <img src="/admin/img/menulist_sub.png" alt="depth3">
                                         </span>
                                     </span>
-                                    <label for="seo_name_<?php echo $row2['seo_id']; ?>" class="sound_only">메뉴명<strong class="sound_only"> 필수</strong></label>
-                                    <input type="text" name="seo_name[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_name']; ?>" id="seo_name_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
+                                    <span>
+                                        <?php echo $row2['seo_name']; ?>
+                                    </span>
                                 </div>
                             </td>
-                            <td>
-                                <label for="seo_name_en_<?php echo $row2['seo_id']; ?>" class="sound_only">메뉴명<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_name_en[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_name_en']; ?>" id="seo_name_en_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
+                            <td class="txt_l"><?php echo $row2['seo_name_en']; ?></td>
+                            <td class="txt_l">
+                                <a href="<?php echo $row2['seo_url']; ?>" target="_blank"><?php echo $row2['seo_url']; ?></a>
                             </td>
                             <td>
-                                <label for="seo_url_<?php echo $row2['seo_id']; ?>" class="sound_only">링크주소<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_url[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_url']; ?>" id="seo_url_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
+                                <label for="seo_title_<?php echo $row2['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_title[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_title']; ?>" id="seo_title_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_order_<?php echo $row2['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_order[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_order']; ?>" id="seo_order_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
+                                <label for="seo_title_en_<?php echo $row2['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_title_en[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_title_en']; ?>" id="seo_title_en_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
+                            </td>
+                            
+                            <td>
+                                <label for="seo_description_<?php echo $row2['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_description[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_description']; ?>" id="seo_description_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_is_blank_<?php echo $row2['seo_id']; ?>" class="sound_only">새창여부</label>
-                                <select name="seo_is_blank[<?php echo $row2['seo_id']; ?>]" id="seo_is_blank_<?php echo $row2['seo_id']; ?>">
-                                    <option value="Y" <?php echo $row2['seo_is_blank'] == 'Y' ? 'selected' : '';?>>사용함</option>
-                                    <option value="N" <?php echo $row2['seo_is_blank'] == 'N' ? 'selected' : '';?>>사용안함</option>
-                                </select>
+                                <label for="seo_description_en_<?php echo $row2['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_description_en[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_description_en']; ?>" id="seo_description_en_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
+                            </td>                            
+                            <td>
+                                <label for="seo_keywords_<?php echo $row2['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_keywords[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_keywords']; ?>" id="seo_keywords_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_activated_<?php echo $row2['seo_id']; ?>" class="sound_only">노출여부</label>
-                                <select name="seo_activated[<?php echo $row2['seo_id']; ?>]" id="seo_activated_<?php echo $row2['seo_id']; ?>">
-                                    <option value="Y" <?php echo $row2['seo_activated'] == 'Y' ? 'selected' : '';?>>사용함</option>
-                                    <option value="N" <?php echo $row2['seo_activated'] == 'N' ? 'selected' : '';?>>사용안함</option>
-                                </select>
-                            </td>
-                        </tr>                        
+                                <label for="seo_keywords_en_<?php echo $row2['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_keywords_en[<?php echo $row2['seo_id']; ?>]" value="<?php echo $row2['seo_keywords_en']; ?>" id="seo_keywords_en_<?php echo $row2['seo_id']; ?>" required class="required frm_input full_input">
+                            </td>                  
                         <?php
                             if($row2['depth3']) {
                                 foreach($row2['depth3'] as $key3 => $row3){
@@ -198,48 +184,50 @@ $(document).on('change', '#seo_parent', function(){
                                 <label for="chk_<?php echo $row3['seo_id']; ?>" class="sound_only"></label>
                                 <input type="checkbox" name="chk[]" value="<?php echo $row3['seo_id']; ?>" id="chk_<?php echo $row3['seo_id']; ?>">
                             </td>
-                            <td>
+                            <td class="txt_l">
                                 <div class="menu_children">
                                     <span>
                                         <span>
-                                            <img src="/admin/img/menulist_sub.png" alt="depth2">
+                                            <img src="/admin/img/menulist_sub.png" alt="depth3">
                                         </span>
                                         <span>
-                                            <img src="/admin/img/menulist_sub.png" alt="depth2">
+                                            <img src="/admin/img/menulist_sub.png" alt="depth3">
                                         </span>
                                     </span>
-                                    <label for="seo_name_<?php echo $row3['seo_id']; ?>" class="sound_only">메뉴명<strong class="sound_only"> 필수</strong></label>
-                                    <input type="text" name="seo_name[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_name']; ?>" id="seo_name_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
+                                    <span>
+                                        <?php echo $row3['seo_name']; ?>
+                                    </span>
                                 </div>
                             </td>
-                            <td>
-                                <label for="seo_name_en_<?php echo $row3['seo_id']; ?>" class="sound_only">메뉴명<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_name_en[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_name_en']; ?>" id="seo_name_en_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
+                            <td class="txt_l"><?php echo $row3['seo_name_en']; ?></td>
+                            <td class="txt_l">
+                                <a href="<?php echo $row3['seo_url']; ?>" target="_blank"><?php echo $row3['seo_url']; ?></a>
                             </td>
                             <td>
-                                <label for="seo_url_<?php echo $row3['seo_id']; ?>" class="sound_only">링크주소<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_url[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_url']; ?>" id="seo_url_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
+                                <label for="seo_title_<?php echo $row3['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_title[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_title']; ?>" id="seo_title_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_order_<?php echo $row3['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
-                                <input type="text" name="seo_order[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_order']; ?>" id="seo_order_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
+                                <label for="seo_title_en_<?php echo $row3['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_title_en[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_title_en']; ?>" id="seo_title_en_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
+                            </td>
+                            
+                            <td>
+                                <label for="seo_description_<?php echo $row3['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_description[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_description']; ?>" id="seo_description_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_is_blank_<?php echo $row3['seo_id']; ?>" class="sound_only">새창여부</label>
-                                <select name="seo_is_blank[<?php echo $row3['seo_id']; ?>]" id="seo_is_blank_<?php echo $row3['seo_id']; ?>">
-                                    <option value="Y" <?php echo $row3['seo_is_blank'] == 'Y' ? 'selected' : '';?>>사용함</option>
-                                    <option value="N" <?php echo $row3['seo_is_blank'] == 'N' ? 'selected' : '';?>>사용안함</option>
-                                </select>
+                                <label for="seo_description_en_<?php echo $row3['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_description_en[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_description_en']; ?>" id="seo_description_en_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
+                            </td>                            
+                            <td>
+                                <label for="seo_keywords_<?php echo $row3['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_keywords[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_keywords']; ?>" id="seo_keywords_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
                             <td>
-                                <label for="seo_activated_<?php echo $row3['seo_id']; ?>" class="sound_only">노출여부</label>
-                                <select name="seo_activated[<?php echo $row3['seo_id']; ?>]" id="seo_activated_<?php echo $row3['seo_id']; ?>">
-                                    <option value="Y" <?php echo $row3['seo_activated'] == 'Y' ? 'selected' : '';?>>사용함</option>
-                                    <option value="N" <?php echo $row3['seo_activated'] == 'N' ? 'selected' : '';?>>사용안함</option>
-                                </select>
+                                <label for="seo_keywords_en_<?php echo $row3['seo_id']; ?>" class="sound_only">순서<strong class="sound_only"> 필수</strong></label>
+                                <input type="text" name="seo_keywords_en[<?php echo $row3['seo_id']; ?>]" value="<?php echo $row3['seo_keywords_en']; ?>" id="seo_keywords_en_<?php echo $row3['seo_id']; ?>" required class="required frm_input full_input">
                             </td>
-                        </tr>
-
                         <?php                   }
                                             }
                                         }
@@ -253,7 +241,7 @@ $(document).on('change', '#seo_parent', function(){
                     </tbody>
                 </table>
             </div>   
-			<input type="hidden" name="cmd" id="cmd" value="GROUPDELETE"/> 
+			<input type="hidden" name="cmd" id="cmd" value="METAEDIT"/> 
         </form>
         <div class="btn_fixed_top">
             <input type="button" name="act_button" value="선택수정" onclick="groupEdit();" style="cursor: pointer;" class="btn_02 btn">
@@ -261,8 +249,6 @@ $(document).on('change', '#seo_parent', function(){
     </div>
     <!-- //등록정보 -->
 </div>
-
-
 
 <?php
     include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/footer.php";

@@ -18,7 +18,7 @@ $pageTitle = '진행중인 투표';
 $post = new Post($pageRows, $tablename, $_REQUEST);
 $rowPageCount = $post->getCount($_REQUEST);
 $result = $post->getList($_REQUEST);
-$colspan = 7;
+$colspan = 8;
 
 include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
 
@@ -69,6 +69,7 @@ function groupDelete() {
                         <col width="200px" />
                         <col width="*" />
                         <col width="200px" />
+                        <col width="80px" />
                         <col width="150px" />
                         <col width="115px" />
                     </colgroup>
@@ -82,6 +83,7 @@ function groupDelete() {
                             <th scope="col">제목</th>
                             <th scope="col">내용</th>
                             <th scope="col">투표기간</th>
+                            <th scope="col">진행상태</th>
                             <th scope="col">작성일</th>
                             <th scope="col">관리</th>
                         </tr>
@@ -101,6 +103,7 @@ function groupDelete() {
                             <td <?php echo $targetUrl; ?>><?php echo $row['post_title']?></td>
                             <td <?php echo $targetUrl; ?> class="txt_l"><?php echo $row['post_contents']?></td>
                             <td <?php echo $targetUrl; ?>><?php echo getYMD($row['post_startdate'])?> ~ <?php echo getYMD($row['post_enddate'])?></td>
+                            <td <?php echo $targetUrl; ?>><?php echo getVoteStatus($row['post_vote_status']); ?></td>
                             <td <?php echo $targetUrl; ?>><?php echo $row['post_datetime']?></td>
                             <td>
                                 <div class="btnSet mt0">
