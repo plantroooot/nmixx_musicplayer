@@ -249,10 +249,6 @@ function groupDelete() {
         $('#sche_type').val($(obj).siblings('.sche_type').val());
         $('#sche_contents').val($(obj).siblings('.sche_contents').val());
 
-        if($(obj).siblings('.sche_date') == ""){
-            
-        }
-
         //참여멤버
         $('.mem_list input[name="sche_nmem[]"]').prop('checked', false);
         let nmember_arr = $(obj).siblings('.sche_nmem').val().split(',');
