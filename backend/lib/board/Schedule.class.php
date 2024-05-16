@@ -159,6 +159,49 @@ class Schedule {
 		return json_encode($sdata);
 	}
 
+	// 전체로우수, 페이지카운트
+	function getCount2($param = "") {
+		$dbconn = new DBConnection();
+		$conn = $dbconn->getConnection();
+		$param = escape_string($param);
+		
+		$whereSql = $this->getWhereSql($param);	// where절
+		$sql = " SELECT COUNT(*) AS cnt FROM ".$this->tableName." WHERE 1=1 AND sche_delyn = 'N' AND sche_date IS NULL";
+
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);
+
+		$row=mysqli_fetch_array($result);
+		$totalCount = $row['cnt'];
+		$pageCount = getPageCount($this->pageRows, $totalCount);
+		
+
+		$data[0] = $totalCount;
+		$data[1] = $pageCount;
+
+		return $data;
+	}
+
+	function getList2($param='') {
+		$dbconn = new DBConnection();
+		$conn = $dbconn->getConnection(); //DB CONNECT
+		$param = escape_string($param);	
+		$whereSql = $this->getWhereSql($param);	// where절
+
+		$sql = "
+			SELECT *
+			FROM ".$this->tableName."
+			WHERE 1=1 AND sche_delyn = 'N' AND sche_date IS NULL
+			ORDER BY sche_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
+
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);		
+		
+		$list = rstToArray($result);
+		
+		return $list;
+	}
+
 	// 관리자 등록
 	function insert($req) {	
 	

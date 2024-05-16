@@ -1,3 +1,14 @@
+.calendarWrap{position: relative;}
+.calendarWrap .right-labels{position: absolute; right: 0; top: 40px;}
+.calendarWrap .right-labels ul::after{content: ''; display: block; clear: both;}
+.calendarWrap .right-labels ul li{float: left; margin-left: 5px; padding-left: 20px; box-sizing: border-box; font-size:1.1em; position: relative;}
+.calendarWrap .right-labels ul li:first-child{margin-left: 0;}
+.calendarWrap .right-labels ul li span{display: block; width: 17px; height: 17px; font-size: 0; text-indent: -9999999px; border: 1px solid #111; box-sizing: border-box; position: absolute; left: 0; top: 0;}
+.calendarWrap .right-labels ul li:nth-child(1) span{background-color: #b8daff;}
+.calendarWrap .right-labels ul li:nth-child(2) span{background-color: #083090;}
+.calendarWrap .right-labels ul li:nth-child(3) span{background-color: #fff677;}
+.calendarWrap .right-labels ul li:nth-child(4) span{background-color: #e8364c;}
+.calendarWrap .right-labels ul li:nth-child(5) span{background-color: #f4afcc;}
 .calendarWrap .calendar{min-width:728px;}
 .calendarWrap .calendar .cal_head{background:linear-gradient(to right, #0060b0, #00489a); position:relative;}
 .calendarWrap .calendar .cal_head p{height:107px; line-height:107px; font-size:3rem; font-weight:700; color:#fff; text-align:center;}
@@ -27,6 +38,12 @@
 .calendarWrap .cont_area .ipt_wrap > div > select{background:transparent; width:140px; height:40px; padding:0 10px; box-sizing:border-box; outline:none;} */
 .calendarWrap .fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number{float:left;}
 .calendarWrap .fc-day-grid-event .fc-content{white-space:unset; overflow:visible; background:#3f51b5; padding:5px; color:#fff; border-radius:3px; cursor:pointer; font-size: 1.2em; display: flex; flex-direction: column-reverse;}
+.calendarWrap .fc-day-grid-event .fc-content-color-1{background-color: #b8daff;}
+.calendarWrap .fc-day-grid-event .fc-content-color-2{background-color: #083090;}
+.calendarWrap .fc-day-grid-event .fc-content-color-3{background-color: #fff677;}
+.calendarWrap .fc-day-grid-event .fc-content-color-3 span{color: #111;}
+.calendarWrap .fc-day-grid-event .fc-content-color-4{background-color: #e8364c;}
+.calendarWrap .fc-day-grid-event .fc-content-color-5{background-color: #f4afcc;}
 .calendarWrap .fc-event, .fc-event-dot{background:#3f51b5; border-color:#3f51b5;}
 .calendarWrap .fc-toolbar.fc-header-toolbar{display:block; margin:0; position:relative;}
 .calendarWrap .fc-center h2{height:50px; line-height:50px; text-align:center; font-size:2em;}
@@ -48,6 +65,9 @@
 .calendarWrap tr > td > .fc-day-grid-event{background:transparent; border:none;}
 .calendarWrap .fc-event,.calendarWrap .full_cl .fc-event:hover{color:inherit;padding-left: 10px;}
 .calendarWrap .fc-time-none{display: none;}
+
+.no_schedule_list{max-width:1400px; margin:0 auto; padding:20px 0;}
+
 #popup.popup{width:100%; height:100vh; background:rgba(0, 0, 0, 0.6); position:fixed; top:0; left:0; z-index:900;}
 #popup.popup.hide{display:none;}
 #popup.popup .inner{width:100%; max-width:561px; height:100%; margin: 0 auto; padding:0 20px; box-sizing:border-box;}

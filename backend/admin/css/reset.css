@@ -42,4 +42,6 @@ box-shadow:0 0 5px #9ed4ff;
 border:1px solid #558ab7 !important;
 }
 
+input[type=text]:disabled{background-color: #f9f9f9 !important;}
+
 .placeholdersjs {color:#aaa !important}

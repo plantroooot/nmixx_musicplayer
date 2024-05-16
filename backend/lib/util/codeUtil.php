@@ -109,6 +109,8 @@ function getScheduleType($type){
 		$result = "생일";
 	} else if($type == 4) {
 		$result = "기타";
+	} else if($type == 5) {
+		$result = "유튜브";
 	}
 	
 	return $result;

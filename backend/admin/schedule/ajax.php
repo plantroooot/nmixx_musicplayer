@@ -12,7 +12,7 @@ if($_POST[$primary_key]){
 	$no = $_POST[$primary_key];
 }
 $sche_nmem = isset($_POST['sche_nmem']) ? implode(',', $_POST['sche_nmem']) : null;              // 링크주소
-$sche_date = isset($_POST['sche_date']) ? $_POST['sche_date'] : date('Y-m-d H:i:00');              // SNS타입
+$sche_date = isset($_POST['sche_date']) ? $_POST['sche_date'] : null;              // SNS타입
 $sche_target = isset($_POST['sche_target']) ? $_POST['sche_target'] : 1;           // 순서
 $sche_type = isset($_POST['sche_type']) ? $_POST['sche_type'] : 1;           // 순서
 $sche_contents = isset($_POST['sche_contents']) ? $_POST['sche_contents'] : null;     		 // 비고
@@ -34,10 +34,12 @@ if (checkReferer($_SERVER["HTTP_REFERER"])) {
 
         $r = $schedule->insert($updatedata);
 
-    } else if ($cmd = 'EDIT'){       
+    } else if ($cmd == 'EDIT'){
 
 		$r = $schedule->update($no, $updatedata);    
             
+    } else if($cmd == 'DELETE'){
+		$r = $schedule->delete($no);    
     }
 
     if($r > 0){

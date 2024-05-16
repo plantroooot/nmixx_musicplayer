@@ -18,9 +18,16 @@ $schedule = new Schedule($pageRows, $tablename, $_REQUEST, $primary_key);
 $rowPageCount = $schedule->getCount($_REQUEST);
 $result = $schedule->getList($_REQUEST);
 
+$rowPageNoDateCount = $schedule->getCount2($_REQUEST);
+$result2 = $schedule->getList2($_REQUEST);
+$colspan = 5;
+
 include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
 
 ?>
+<style>
+    .fc-day-grid-container{height: auto !important;}
+</style>
 <script>
 
 function groupEdit() {	
@@ -85,7 +92,6 @@ function groupDelete() {
             eventClick : function (info){
                 let def = info.event._def;
                 let sinfo = def.extendedProps.sinfo;
-                console.log(sinfo);             
 
                 $('#sche_id').val(sinfo.sche_id);
                 $('#sche_date').val(sinfo.sche_date);        // 일시
@@ -100,6 +106,7 @@ function groupDelete() {
                     $('#sche_nmem'+nmember_arr[k]).prop('checked', true);
                 }
 
+                $('#delete_btn').css('display', 'inline-block');
                 $('#cmd').val('EDIT');
 
                 openPopup('popup_schedule');
@@ -134,6 +141,15 @@ function groupDelete() {
                     var timeElement = info.el.querySelector('.fc-time');
                     if (timeElement) {
                         timeElement.classList.add('fc-time-none');
+                    }
+                }
+                
+                for(let i = 1; i <= 5; i++){
+                    if(sinfo.sche_type == i){
+                        var timeElement = info.el.querySelector('.fc-content');
+                        if (timeElement) {
+                            timeElement.classList.add('fc-content-color-'+i);
+                        }
                     }
                 }
             }
@@ -199,6 +215,17 @@ function groupDelete() {
         
     });
 
+    $(document).on('change', '#sche_disabled', function(){
+        let flag = $(this).is(':checked');
+
+        if(flag){
+            $('#sche_date').val('');
+            $('#sche_date').prop('disabled', true);
+        }else{
+            $('#sche_date').prop('disabled', false);
+        }
+    });
+
     function getScheduleWrite(date=''){
         
         $('#sche_id').val('');
@@ -208,9 +235,75 @@ function groupDelete() {
         $('#sche_contents').val('') // 내용
         //참여멤버
         $('.mem_list input[name="sche_nmem[]"]').prop('checked', false);
+        
+        $('#delete_btn').css('display', 'none');
 
         $('#cmd').val('WRITE');
         openPopup('popup_schedule');
+    }
+
+    function goEdit(obj){
+
+        $('#sche_id').val($(obj).siblings('.sche_id').val());
+        $('#sche_target').val($(obj).siblings('.sche_target').val());
+        $('#sche_type').val($(obj).siblings('.sche_type').val());
+        $('#sche_contents').val($(obj).siblings('.sche_contents').val());
+
+        if($(obj).siblings('.sche_date') == ""){
+            
+        }
+
+        //참여멤버
+        $('.mem_list input[name="sche_nmem[]"]').prop('checked', false);
+        let nmember_arr = $(obj).siblings('.sche_nmem').val().split(',');
+        for(let k = 0; k < nmember_arr.length; k++){
+            $('#sche_nmem'+nmember_arr[k]).prop('checked', true);
+        }
+
+        $('#delete_btn').css('display', 'inline-block');
+        $('#cmd').val('EDIT');
+
+        openPopup('popup_schedule');
+
+    }
+
+    function goDelete(){
+
+        if(!confirm('삭제하시겠습니까?')){
+            return false;
+        }else{
+            $('#cmd').val('DELETE');
+    
+            let frm = document.getElementById('fboardform');        
+            let formData = new FormData(frm);
+    
+            
+            $.ajax({
+                url : 'ajax.php',
+                type : 'POST',
+                data : formData,
+                enctype : 'multipart/form-data',
+                processData : false,
+                contentType : false,
+                success : function(data){
+                    let r = data.trim();
+                    console.log(r);
+    
+                    if(r == 'success'){
+                        alert('삭제되었습니다.');
+                        location.reload();
+                    }else{
+                        alert('요청처리중 장애가 발생하였습니다.');
+                    }
+                    
+                },
+                error : function(error){
+                    console.log(error);
+                }
+            });
+        }
+        
+
     }
 
 </script>
@@ -219,11 +312,75 @@ function groupDelete() {
     <!-- 등록정보 -->
     <div class="container_wr">
         <div class="calendarWrap">
+            <div class="right-labels">
+                <ul>
+                    <?php
+                        for($k = 1; $k <= 5; $k++){
+                    ?>                                
+                    <li><span><?php echo getScheduleType($k); ?></span><?php echo getScheduleType($k); ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
             <div id='calendar'></div>
         </div>
         <div class="btn_fixed_top">
             <input type="button" name="act_button" value="등록" onclick="getScheduleWrite()" style="cursor: pointer;" class="btn_01 btn">
         </div>
+        <div class="no_schedule_list">
+            <div class="tbl_head01 tbl_wrap">
+                <h2 class="h2_frm" style="margin-top: 0;">미정스케줄 목록</h2>
+                <table>
+                    <caption>미정스케줄 목록</caption>
+                    <colgroup>
+                        <col width="150px" />
+                        <col width="150px" />
+                        <col width="150px" />
+                        <col width="*" />
+                        <col width="115px" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">종류</th>
+                            <th scope="col">참여멤버</th>
+                            <th scope="col">분류</th>
+                            <th scope="col">내용</th>
+                            <th scope="col">관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?
+                            if($result){
+                                foreach($result2 as $key => $row){
+                        ?>      
+                        <tr>
+                            <td><?php echo getScheduleTarget($row['sche_target']); ?></td>
+                            <td><?php echo getNmemberToText($row['sche_nmem'])?></td>
+                            <td><?php echo getScheduleType($row['sche_type']); ?></td>
+                            <td class="txt_l"><?php echo $row['sche_contents']?></td>
+                            <td>
+                                <div class="btnSet mt0">
+                                    <a href="javascript:;" class="btn btn_03" onclick="goEdit(this);">수정</a>                                
+                                    <input type="hidden" name="" value="<?php echo $row['sche_id']; ?>" class="sche_id" />
+                                    <input type="hidden" name="" value="<?php echo $row['sche_target']; ?>" class="sche_target" />
+                                    <input type="hidden" name="" value="<?php echo $row['sche_date']; ?>" class="sche_date" />
+                                    <input type="hidden" name="" value="<?php echo $row['sche_type']; ?>" class="sche_type" />
+                                    <input type="hidden" name="" value="<?php echo $row['sche_nmem']; ?>" class="sche_nmem" />
+                                    <input type="hidden" name="" value="<?php echo $row['sche_contents']; ?>" class="sche_contents" />
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                                }
+                            }
+                            if(!$result2){
+                                echo '<tr><td colspan="' . $colspan . '" class="empty_table">자료가 없습니다.</td></tr>';
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div> 
+        </div>
+
     </div>
     <!-- //등록정보 -->
 </div>
@@ -249,6 +406,10 @@ function groupDelete() {
                                     <th scope="row"><label for="sche_date">일시<strong class="sound_only">필수</strong></label></th>
                                     <td>
                                         <input type="text" name="sche_date" value="" id="sche_date" required class="required frm_input datetimepicker1" size="40" maxlength="120" readonly />
+                                        <span class="check_box">
+                                            <input type="checkbox" name="sche_disabled" value="1" id="sche_disabled">
+                                            <label for="sche_disabled">미정</label>                                        
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -283,7 +444,7 @@ function groupDelete() {
                                     <td colspan="3">                                    
                                         <select name="sche_type" id="sche_type" class="required frm_input" style="width: 100%; margin-bottom: 5px;">
                                             <?php
-                                                for($k = 1; $k <= 4; $k++){
+                                                for($k = 1; $k <= 5; $k++){
                                             ?>                                
                                             <option value="<?php echo $k; ?>"><?php echo getScheduleType($k); ?></option>
                                             <?php } ?>
@@ -295,6 +456,7 @@ function groupDelete() {
                         </table>
                     </div>
                     <div class="btn_set txt_r">
+                        <input type="button" name="act_button" id="delete_btn" value="삭제" class="btn_02 btn" style="display: none;" onclick="goDelete();">
                         <input type="submit" name="act_button" value="저장" class="btn_01 btn">
                     </div>
                     <input type="hidden" id="<?php echo $primary_key; ?>" name="<?php echo $primary_key; ?>" value="">
