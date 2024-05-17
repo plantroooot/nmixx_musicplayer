@@ -39,11 +39,11 @@ if ($loginCheck > 0) {
 
 	$_SESSION['admin_no'] = $row['adm_id'];
 	$_SESSION['admin_id'] = $row['adm_userid'];
-	$_SESSION['admin_name'] = $row['adm_name'];
+	$_SESSION['admin_name'] = $row['adm_username'];
 	$_SESSION['admin_grade'] = $row['adm_grade'];
 	$_SESSION['admin_email'] = $row['adm_email'];
 	
-	$admin->insertLoginHistory($row['adm_userid'], $row['adm_name'], $_SERVER['REMOTE_ADDR']);
+	$admin->insertLoginHistory($row['adm_userid'], $row['adm_username'], $_SERVER['REMOTE_ADDR']);
 	
 	$url = START_PAGE;
 ?>

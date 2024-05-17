@@ -6,11 +6,12 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/codeUtil.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/dateUtil.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/Board.class.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/Post.class.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/lib/seo/Seo.class.php";
 
 include $_SERVER['DOCUMENT_ROOT']."/admin/include/loginCheck.php";
 include "../post/config.php";
 
-$pageTitle = '진행중인 투표';
+$pageTitle = '업데이트 내역';
 $post = new Post($pageRows, $tablename, $_REQUEST, $primary_key);
 
 if($_REQUEST['no']){
@@ -20,16 +21,20 @@ if($_REQUEST['no']){
 $board = new Board($pageRows, 'board', $_REQUEST);
 $brd_data = $board->getBoardData($_REQUEST['bcode'], false);
 
+$seo = new Seo(9999, 'seo', $_REQUEST, 'seo_id');
+$rowPageCount = $seo->getCount($_REQUEST);
+$result_all = $seo->getListAll($_REQUEST);
+
 include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
 
 ?>
 <script>
 	var oEditors; // 에디터 객체 담을 곳 - 국문
 	var oEditors2; // 에디터 객체 담을 곳 - 영문
-	jQuery(window).load(function(){
-		oEditors = setEditor("post_contents"); // 에디터 셋팅 - 국문
-		oEditors2 = setEditor("post_contents_en"); // 에디터 셋팅 - 영문
-	});
+	// jQuery(window).load(function(){
+	// 	oEditors = setEditor("post_contents"); // 에디터 셋팅 - 국문
+	// 	oEditors2 = setEditor("post_contents_en"); // 에디터 셋팅 - 영문
+	// });
 
 	function fboardform_submit(frm) {
 		/*var regex=/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -82,8 +87,8 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
         //     }
         // }
 
-        oEditors.getById["post_contents"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-        oEditors2.getById["post_contents_en"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+        // oEditors.getById["post_contents"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+        // oEditors2.getById["post_contents_en"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 
 		$('#fboardform').submit();
 
@@ -120,10 +125,10 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
                     </table>
                 </div>                
 
-                <h2 class="h2_frm">투표정보</h2>
+                <h2 class="h2_frm">업데이트 정보</h2>
                 <div class="tbl_frm01 tbl_wrap">
                     <table>
-                        <caption>투표정보</caption>
+                        <caption>업데이트 정보</caption>
                         <colgroup>
 							<col width="12.5%">
 							<col width="37.5%">
@@ -131,38 +136,67 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
 							<col width="37.5%">
                         </colgroup>
                         <tbody>
+                            <tr>
+                                <th scope="row"><label for="post_title_en">업데이트 구분<strong class="sound_only">필수</strong></label></th>
+                                <td colspan="3">
+                                    <div class="chk_list">
+                                        <?php
+                                            for($k = 1; $k <= 3; $k++){
+                                        ?>
+                                        <span class="radio_box">
+                                            <input type="radio" name="post_categoryfk" value="<?php echo $k; ?>" id="post_categoryfk<?php echo $k; ?>" <?php echo $data['post_categoryfk'] == $k ? 'checked' : '';?>>
+                                            <label for="post_categoryfk<?php echo $k; ?>"><?php echo getUpdateType($k); ?></label>                                        
+                                        </span>
+                                        <?php } ?>
+                                    </div>                                                         
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="post_title">업데이트 메뉴<strong class="sound_only">필수</strong></label></th>
+                                <td colspan="3">
+                                    <div class="chk_list">
+                                    <?php
+                                        if ($result_all) {
+                                            foreach ($result_all as $key => $row) {
+                                                if ($row['seo_name'] != '메인') {
+                                                    $checked = '';
+
+                                                    if (isset($_REQUEST['no'])) {
+                                                        $upt_menu = explode(',', $data['post_category_menu']);
+                                                        if (in_array($row['seo_id'], $upt_menu)) {
+                                                            $checked = 'checked';
+                                                        }
+                                                    }
+                                    ?>
+                                                    <span class="check_box">                                                
+                                                        <input type="checkbox" name="post_category_menu[]" value="<?php echo $row['seo_id']; ?>" id="post_category_menu<?php echo $row['seo_id']; ?>" <?php echo $checked; ?>>
+                                                        <label for="post_category_menu<?php echo $row['seo_id']; ?>"><?php echo $row['seo_name']; ?></label>                                        
+                                                    </span>
+                                    <?php
+                                                }
+                                            }
+                                        }
+                                    ?>
+
+                                    </div>
+                                </td>
+                            </tr>
                             <tr>                                
-                                <th scope="row"><label for="post_startdate">투표 시작일<strong class="sound_only">필수</strong></label></th>
-                                <td>
-                                    <input type="text" name="post_startdate" value="<?php echo getYMD($data['post_startdate']); ?>" id="post_startdate" required class="required frm_input datepicker2" size="40" maxlength="120" autocomplete="off">
-                                </td>                           
-                                <th scope="row"><label for="post_enddate">투표 종료일<strong class="sound_only">필수</strong></label></th>
-                                <td>
-                                    <input type="text" name="post_enddate" value="<?php echo getYMD($data['post_enddate']); ?>" id="post_enddate" required class="required frm_input datepicker3" size="40" maxlength="120" autocomplete="off">
+                                <th scope="row"><label for="post_updatetime2">업데이트 일자<strong class="sound_only">필수</strong></label></th>
+                                <td colspan="3">
+                                    <input type="text" name="post_updatetime2" value="<?php echo getYMD($data['post_updatetime2']); ?>" id="post_updatetime2" required class="required frm_input datepicker4" size="40" maxlength="120" autocomplete="off">
+                                </td>   
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="post_contents">업데이트 내용(국문)<strong class="sound_only">필수</strong></label></th>
+                                <td colspan="3">
+                                    <textarea name="post_contents" id="post_contents" style="resize: none;"><?php echo $data['post_contents']; ?></textarea>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="post_title">투표명(국문)<strong class="sound_only">필수</strong></label></th>
+                                <th scope="row"><label for="post_contents_en">업데이트 내용(영문)<strong class="sound_only">필수</strong></label></th>
                                 <td colspan="3">
-                                    <input type="text" name="post_title" value="<?php echo $data['post_title']; ?>" id="post_title" required class="required frm_input" size="40" maxlength="120">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><label for="post_title_en">투표명(영문)<strong class="sound_only">필수</strong></label></th>
-                                <td colspan="3">
-                                    <input type="text" name="post_title_en" value="<?php echo $data['post_title_en']; ?>" id="post_title_en" required class="required frm_input" size="40" maxlength="120">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><label for="post_contents">투표설명(국문)<strong class="sound_only">필수</strong></label></th>
-                                <td colspan="3">
-                                    <textarea name="post_contents" id="post_contents"><?php echo $data['post_contents']; ?></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><label for="post_contents_en">투표내용(영문)<strong class="sound_only">필수</strong></label></th>
-                                <td colspan="3">
-                                    <textarea name="post_contents_en" id="post_contents_en"><?php echo $data['post_contents_en']; ?></textarea>
+                                    <textarea name="post_contents_en" id="post_contents_en" style="resize: none;"><?php echo $data['post_contents_en']; ?></textarea>
                                 </td>
                             </tr>                        
                             <?php if($brd_data['brd_link'] && $brd_data['brd_linkcnt'] > 0){ 

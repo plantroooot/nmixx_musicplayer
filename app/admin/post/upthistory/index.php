@@ -18,10 +18,9 @@ $pageTitle = '업데이트 내역';
 $post = new Post($pageRows, $tablename, $_REQUEST);
 $rowPageCount = $post->getCount($_REQUEST);
 $result = $post->getList($_REQUEST);
-$colspan = 7;
+$colspan = 8;
 
 include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
-
 ?>
 <script>
 
@@ -66,9 +65,10 @@ function groupDelete() {
                     <colgroup>
                         <col width="42px" />
                         <col width="80px" />
-                        <col width="200px" />
                         <col width="*" />
                         <col width="200px" />
+                        <col width="250px" />
+                        <col width="150px" />
                         <col width="150px" />
                         <col width="115px" />
                     </colgroup>
@@ -79,10 +79,11 @@ function groupDelete() {
                                 <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
                             </th>
                             <th scope="col">번호</th>
-                            <th scope="col">제목</th>
                             <th scope="col">내용</th>
-                            <th scope="col">투표기간</th>
+                            <th scope="col">구분</th>
+                            <th scope="col">업데이트 메뉴</th>
                             <th scope="col">작성일</th>
+                            <th scope="col">업데이트일</th>
                             <th scope="col">관리</th>
                         </tr>
                     </thead>
@@ -98,10 +99,11 @@ function groupDelete() {
                                 <input type="checkbox" name="chk[]" value="<?php echo $row['post_id']; ?>" id="chk_<?php echo $key ?>" data-num="<?php echo $row['data_cnt']; ?>" >
                             </td>
                             <td <?php echo $targetUrl; ?>><?php echo $rowPageCount[0] - (($post->reqPageNo-1)*$pageRows) - $key?></td>
-                            <td <?php echo $targetUrl; ?>><?php echo $row['post_title']?></td>
-                            <td <?php echo $targetUrl; ?> class="txt_l"><?php echo $row['post_contents']?></td>
-                            <td <?php echo $targetUrl; ?>><?php echo getYMD($row['post_startdate'])?> ~ <?php echo getYMD($row['post_enddate'])?></td>
-                            <td <?php echo $targetUrl; ?>><?php echo $row['post_datetime']?></td>
+                            <td <?php echo $targetUrl; ?>><?php echo $row['post_contents']?></td>
+                            <td <?php echo $targetUrl; ?>><?php echo getUpdateType($row['post_categoryfk'])?></td>
+                            <td <?php echo $targetUrl; ?>><?php echo getMenuToText($row['post_category_menu'])?></td>
+                            <td <?php echo $targetUrl; ?>><?php echo getYMD($row['post_updatetime2']); ?></td>
+                            <td <?php echo $targetUrl; ?>><?php echo getYMD($row['post_datetime']); ?></td>
                             <td>
                                 <div class="btnSet mt0">
                                     <a href="<?=$post->getQueryString('write.php', $row['post_id'], $_REQUEST)?>" class="btn btn_03">수정</a>                                    

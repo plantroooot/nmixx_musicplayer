@@ -20,6 +20,7 @@ if($_POST['post_id']){
 	$no = $_POST['post_id'];
 }
 
+$post_username = isset($_POST['post_username']) ? $_POST['post_username'] : null; // 게시글 제목(국문)
 $post_title = isset($_POST['post_title']) ? $_POST['post_title'] : null; // 게시글 제목(국문)
 $post_title_en = isset($_POST['post_title_en']) ? $_POST['post_title_en'] : null;
 $post_contents = isset($_POST['post_contents']) ? $_POST['post_contents'] : null;
@@ -32,8 +33,11 @@ $post_top = isset($_POST['post_top']) ? $_POST['post_top'] : 0;
 $post_readno = isset($_POST['post_readno']) ? $_POST['post_readno'] : 0;
 $post_startdate = isset($_POST['post_startdate']) ? $_POST['post_startdate'] : null;
 $post_enddate = isset($_POST['post_enddate']) ? $_POST['post_enddate'] : null;
+$post_category_menu = isset($_POST['post_category_menu']) ? implode(',', $_POST['post_category_menu']) : null;
+$post_updatetime2 = isset($_POST['post_updatetime2']) ? $_POST['post_updatetime2'] : null;
 
 $updatedata = array(
+	'post_username' => $post_username,
 	'post_title' => $post_title,
 	'post_title_en' => $post_title_en,
 	'post_contents' => $post_contents,
@@ -45,7 +49,9 @@ $updatedata = array(
 	'post_top' => $post_top,
 	'post_readno' => $post_readno,
 	'post_startdate' => $post_startdate,
-	'post_enddate' => $post_enddate
+	'post_enddate' => $post_enddate,
+	'post_category_menu' => $post_category_menu,
+	'post_updatetime2' => $post_updatetime2
 );
 
 ?>
@@ -62,7 +68,7 @@ if (checkReferer($_SERVER["HTTP_REFERER"])) {
 	if ($cmd == 'WRITE') {
 
 		$updatedata['brd_id'] = $_POST['brd_id'];
-		$updatedata['brd_code'] = $_POST['brd_code'];
+		$updatedata['brd_code'] = $_POST['bcode'];
 		$updatedata['post_datetime'] = date('Y-m-d H:i:s');
 		$updatedata['post_delyn'] = 'N';
         

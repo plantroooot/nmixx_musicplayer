@@ -1,4 +1,5 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT']."/lib/seo/Seo.class.php";
 
 function getMVTitle($type){
 	$result = "";
@@ -115,5 +116,42 @@ function getScheduleType($type){
 	
 	return $result;
 }
+
+
+function getUpdateType($type){
+	$result = "";
+	
+	if($type == 1) {
+		$result = "기능";
+	} else if($type == 2) {
+		$result = "개선";
+	} else if($type == 3) {
+		$result = "디자인";
+	}
+	
+	return $result;
+}
+
+function getMenuName($seo_id){
+	$seo = new Seo(1, 'seo', $_REQUEST, 'seo_id');	
+	$data = $seo->getData($seo_id, false);
+
+	return $data['seo_name'];
+}
+
+function getMenuToText($str){
+	$array = explode(',', $str);
+	$menu_name = array();
+
+	for($k = 0; $k < count($array); $k++){
+		$menu_name[$k] = getMenuName($array[$k]);
+	}
+
+	$menu_name = implode(',', $menu_name);
+
+	return $menu_name;
+	
+}
+
 
 ?>

@@ -45,7 +45,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
                         </colgroup>
                         <tbody>
                             <tr>
-                                <th scope="row"><label for="brd_title">일시<strong class="sound_only">필수</strong></label></th>
+                                <th scope="row"><label for="brd_title">게시판 제목<strong class="sound_only">필수</strong></label></th>
                                 <td colspan="2">
                                     <input type="text" name="brd_title" value="" id="brd_title" required class="required frm_input" size="40" maxlength="120">
                                 </td>
