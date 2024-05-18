@@ -5,13 +5,6 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/function.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/Rank.class.php";
 
 
-$rank = new Rank(1, 'rank', $_REQUEST);
-$rowPageCount1 = $rank->getRankCount($_REQUEST, 1);
-$result1 = $rank->getRankList($_REQUEST, 1);
-
-$rowPageCount2 = $rank->getRankCount($_REQUEST, 2);
-$result2 = $rank->getRankList($_REQUEST, 2);
-
 include_once $_SERVER['DOCUMENT_ROOT']."/header.php";
 ?>
  
@@ -20,6 +13,103 @@ include_once $_SERVER['DOCUMENT_ROOT']."/header.php";
 </style>
 
 <main id="main">
+	<section class="main-visual">
+		<div class="visual-wrap">
+			<img src="/img/main_visual1.png" alt="DASH">
+		</div>
+	</section>
+	<section class="section section1">
+		<div class="section-wrap">
+			<div class="size">
+				<div class="tit-area clear">
+					<div class="tit-box">
+						<h2 class="gd-dot">One Click Streming</h2>
+						<span>한번의 클릭으로 다양한 서비스를 이용해보세요.</span>						
+					</div>		
+				</div>
+				<div class="cont-area">
+					<div class="list-wrap">
+						<ul class="clear">
+							<li>
+								<a href="javascript:;">
+									<div class="box box2">
+										<div class="ico">
+											<img src="img/ico_sec3_2.svg">
+										</div>
+										<div class="txt">
+											<em>Melon</em>	
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="box box2">
+										<div class="ico">
+											<img src="img/ico_sec3_2.svg">
+										</div>
+										<div class="txt">
+											<em>Melon</em>	
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="box box2">
+										<div class="ico">
+											<img src="img/ico_sec3_2.svg">
+										</div>
+										<div class="txt">
+											<em>Melon</em>	
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="box box2">
+										<div class="ico">
+											<img src="img/ico_sec3_2.svg">
+										</div>
+										<div class="txt">
+											<em>Melon</em>	
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="box box2">
+										<div class="ico">
+											<img src="img/ico_sec3_2.svg">
+										</div>
+										<div class="txt">
+											<em>Melon</em>	
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="box box2">
+										<div class="ico">
+											<img src="img/ico_sec3_2.svg">
+										</div>
+										<div class="txt">
+											<em>Melon</em>	
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<?/*
 	<div class="title-wrap">
 		<h1>MIXX PLAYER</h1>
 	</div>
@@ -131,20 +221,8 @@ include_once $_SERVER['DOCUMENT_ROOT']."/header.php";
 			</div>
 		</div>
 	</div>
+	*/?>
 </main>
-<script>
-	$('#rankTab ul li a').on('click', function(){
-		let idx = $(this).parent().index();
-
-		$(this).parent().siblings().children('a').removeClass('on');
-		$('.tbl_area .tbl_wrap').css('display', 'none');
-		$(this).addClass('on');
-		$('.tbl_area .tbl_wrap').eq(idx).css('display', 'block');
-
-		console.log(idx);
-	});
-</script>
-
 <?php
 	include_once $_SERVER['DOCUMENT_ROOT']."/footer.php";
 ?>

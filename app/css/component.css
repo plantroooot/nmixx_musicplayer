@@ -3,7 +3,7 @@
 /* CSS Document */ 
 
 
-/* ==================================================
+/* ====================rrrrrrrrrrrrrrrrrrr==============================
 	공통레이아웃
 ================================================== */
 
@@ -12,15 +12,24 @@
 .container { width: 100%; max-width: 1360px; padding: 0 40px; height: auto; margin: 0 auto;  box-sizing: border-box;  position: relative;}
 .basic_img{opacity: 0; visibility: hidden;}
 .back_img{background-repeat: no-repeat; background-position: 50% 50%; background-size: cover;}
-#main, #sub { margin-top: 90px }
+/* #main, #sub { margin-top: 90px } */
 
 /* ==================================================
     header
 ================================================== */
 
 #header { width: 100%; position: fixed; top: 0; left: 0; z-index: 1000;}
-#header .header-body { background: #FFF; width: 100%; display: flex;  flex-direction: column; position: relative; z-index: 1001; box-sizing: border-box;}
-#header .header-body .header-inner { height: 90px; padding: 0 20px; box-sizing: border-box; }
+#header .header-body { width: 100%; display: flex;  flex-direction: column; position: relative; z-index: 1001; box-sizing: border-box; border-bottom: 1px solid rgba(246, 246, 246, 0.4)}
+#header .header-body .header-inner {width: 100%; margin: 0 auto; max-width: 1360px; padding: 0 40px; box-sizing: border-box;}
+
+#header .header-body .logo-wrap h1 a{display: block; width: 240px; height: 70px; line-height: 70px; background-image: url('/img/logo.png'); background-repeat: no-repeat; background-size: contain; background-size: auto 60px; background-position: 50% 50%;}
+#header .header-body .gnb-wrap > ul{display: flex;}
+#header .header-body .gnb-wrap > ul > li > a{display: block; padding: 0 50px; height: 70px; line-height: 70px; font-size: 1.6rem; font-weight: 500; color: #fff;}
+/* #header .header-body .gnb-wrap > ul > li > a:hover{color: #111;} */
+#header .header-body .util-wrap > ul{display: flex;}
+#header .header-body .util-wrap > ul > li > a{display: block; padding: 0 15px; height: 70px; line-height: 70px; font-size: 1.6rem; font-weight: 500; color: #fff;}
+/* #header .header-body .util-wrap > ul > li > a:hover{color: #111;} */
+
 
 #header.header-effect-sticky .header-body {position: absolute; top: 50px; transition: ease all 300ms; }
 #header.header-effect-sticky.active .header-body { position: fixed; top:0;  }
@@ -347,6 +356,8 @@
 /* ==================================================
                     Utility
 ================================================== */
+
+.blind{font-size: 0; text-indent: -99999px;}
 
 /***** Flex *****/
 

@@ -1,6 +1,12 @@
 <?
 include_once $_SERVER['DOCUMENT_ROOT']."/include/common.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/lib/seo/Seo.class.php";
+
+$_REQUEST['user'] = 1;
+$seo = new Seo(99999, 'seo', $_REQUEST, 'seo_id');
+$seo_result = $seo->getList($_REQUEST);
+
 ?>
 <!doctype html>
 <html lang="ko">
@@ -50,11 +56,6 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
 </head>
 
 <body>
-<?
-	$gnb= file_get_contents( $_SERVER['DOCUMENT_ROOT']."/json/gnb.json" );
-    if( $gnb ) $json = json_decode( $gnb, true );
-    $pgc = array('aboutus', 'customweb', 'portfolio', 'contact');
-?>
 <div class="wrapper">
 
 

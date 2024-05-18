@@ -94,6 +94,12 @@ class Seo {
 				}
 			}
 		}
+
+		if(isset($p['user']) && $p['user'] == 1){
+			$whereSql .= " AND seo_activated = 'Y'";
+		}
+
+
 		if (isset($p['sstartdate'])) {
 			if ($p['senddate'] != '') {
 				$whereSql .= " AND (registdate BETWEEN '".$p['sstartdate']." 00:00:00' AND '".$p['senddate']." 23:59:59') ";
