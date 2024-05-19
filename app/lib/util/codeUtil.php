@@ -24,21 +24,43 @@ function getMVTitle($type){
 	return $result;
 }
 
+function getSNSIcon($type){
+
+	$result = "";
+	if ($type == 1) {
+		$result = "jpg_logo.svg";
+	} else if($type == 2) {
+		$result = "ico_youtube_svg.svg";
+	} else if($type == 3) {
+		$result = "ico_instargram_svg.svg";
+	} else if($type == 4) {
+		$result = "ico_x_svg.svg";
+	} else if($type == 5) {
+		$result = "ico_facebook_svg.svg";
+	} else if($type == 6) {
+		$result = "ico_tictok_svg.svg";
+	} else if($type == 7) {
+		$result = "ico_weibo_svg.svg";
+	}
+	
+	return $result;
+}
+
 function getSNSType($type){
 	$result = "";
-	
-	if($type == 1) {
-		$result = "유튜브";
+
+	if ($type == 1) {
+		$result = "공식";
 	} else if($type == 2) {
-		$result = "인스타그램";
+		$result = "유튜브";
 	} else if($type == 3) {
-		$result = "트위터";
-	} else if($type == 4) {
-		$result = "페이스북";
-	} else if($type == 5) {
-		$result = "틱톡";
-	} else if($type == 6) {
 		$result = "인스타그램";
+	} else if($type == 4) {
+		$result = "트위터";
+	} else if($type == 5) {
+		$result = "페이스북";
+	} else if($type == 6) {
+		$result = "틱톡";
 	} else if($type == 7) {
 		$result = "웨이보";
 	}

@@ -16,13 +16,15 @@ $sche_date = isset($_POST['sche_date']) ? $_POST['sche_date'] : null;           
 $sche_target = isset($_POST['sche_target']) ? $_POST['sche_target'] : 1;           // 순서
 $sche_type = isset($_POST['sche_type']) ? $_POST['sche_type'] : 1;           // 순서
 $sche_contents = isset($_POST['sche_contents']) ? $_POST['sche_contents'] : null;     		 // 비고
+$sche_url = isset($_POST['sche_url']) ? $_POST['sche_url'] : null;     		 // 비고
 
 $updatedata = array(
 	'sche_nmem' => $sche_nmem,
 	'sche_date' => $sche_date,
 	'sche_target' => $sche_target,
 	'sche_type' => $sche_type,
-	'sche_contents' => $sche_contents
+	'sche_contents' => $sche_contents,
+	'sche_url' => $sche_url
 );
 
 if (checkReferer($_SERVER["HTTP_REFERER"])) {

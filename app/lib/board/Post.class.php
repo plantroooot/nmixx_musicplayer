@@ -136,14 +136,6 @@ class Post {
 		$conn = $dbconn->getConnection(); //DB CONNECT
 		$param = escape_string($param);	
 		$whereSql = $this->getWhereSql($param);	// where절
-		
-
-		// $sql = "
-		// 	SELECT *, 
-		// 		(SELECT COUNT(*) FROM comment WHERE tablename = '".$this->tableName."' AND parent_fk = ".$this->tableName.".no) AS comment_count
-		// 	FROM ".$this->tableName."
-		// 	".$whereSql."
-		// 	ORDER BY top DESC, registdate DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
 
 		$sql = "
 			SELECT *,			
@@ -217,6 +209,29 @@ class Post {
 		$data = mysqli_fetch_assoc($result);
 
 		return $data;
+	}
+
+	// 목록
+	function getListAll($param='') {
+		$dbconn = new DBConnection();
+		$conn = $dbconn->getConnection(); //DB CONNECT
+		$param = escape_string($param);	
+		$whereSql = $this->getWhereSql($param);	// where절
+
+		$sql = "
+			SELECT *,			
+			(SELECT CASE WHEN post_startdate > NOW() THEN '2' WHEN post_enddate < NOW() THEN '3' ELSE '1' END AS status) AS post_vote_status
+			FROM ".$this->tableName."
+			WHERE 1=1 AND post_delyn = 'N'
+			ORDER BY post_top DESC, post_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
+
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);
+		
+		
+		$list = rstToArray($result);
+
+		return $list;
 	}
 
 	// 카테고리

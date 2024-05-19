@@ -90,6 +90,7 @@ function groupDelete() {
                 getScheduleWrite(info.dateStr+' 00:00:00');
             },
             eventClick : function (info){
+                console.log(info);
                 let def = info.event._def;
                 let sinfo = def.extendedProps.sinfo;
 
@@ -98,6 +99,7 @@ function groupDelete() {
                 $('#sche_target').val(sinfo.sche_target);    // 종류
                 $('#sche_type').val(sinfo.sche_type);        // 내용선택
                 $('#sche_contents').val(sinfo.sche_contents) // 내용
+                $('#sche_url').val(sinfo.sche_url)           // 관련링크
 
                 //참여멤버
                 $('.mem_list input[name="sche_nmem[]"]').prop('checked', false);
@@ -362,6 +364,7 @@ function groupDelete() {
                                     <input type="hidden" name="" value="<?php echo $row['sche_type']; ?>" class="sche_type" />
                                     <input type="hidden" name="" value="<?php echo $row['sche_nmem']; ?>" class="sche_nmem" />
                                     <input type="hidden" name="" value="<?php echo $row['sche_contents']; ?>" class="sche_contents" />
+                                    <input type="hidden" name="" value="<?php echo $row['sche_url']; ?>" class="sche_url" />
                                 </div>
                             </td>
                         </tr>
@@ -446,6 +449,12 @@ function groupDelete() {
                                             <?php } ?>
                                         </select>
                                         <input type="text" name="sche_contents" value="" id="sche_contents" required class="required frm_input full_input"  maxlength="120">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="sche_url">관련링크<strong class="sound_only">필수</strong></label></th>
+                                    <td colspan="3">
+                                        <input type="text" name="sche_url" value="" id="sche_url" required class="required frm_input full_input"  maxlength="120">
                                     </td>
                                 </tr>
                             </tbody>
