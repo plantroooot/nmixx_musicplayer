@@ -7,6 +7,9 @@ $_REQUEST['user'] = 1;
 $seo = new Seo(99999, 'seo', $_REQUEST, 'seo_id');
 $seo_result = $seo->getList($_REQUEST);
 
+$url = $_SERVER['REQUEST_URI'];
+$seo_data = $seo->getDataFromUrl($url);
+
 ?>
 <!doctype html>
 <html lang="ko">

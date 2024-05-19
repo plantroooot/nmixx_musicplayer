@@ -8,7 +8,7 @@
 		<div class="header-inner flex-box justify-content-between">
 			<div class="logo-wrap">
 				<h1>
-					<a href="/" class="blind">로고영역</a>
+					<a href="/" class="blind"><?php echo COMPANY_NAME; ?></a>
 				</h1>	
 			</div>
 			<div class="gnb-wrap">
@@ -36,7 +36,7 @@
 			<div class="util-wrap">
 				<ul>
 					<li>
-						<a href="/">KOR</a>
+						<a href="/" class="on">KOR</a>
 					</li>
 					<li>
 						<a href="/en/">ENG</a>

@@ -2,107 +2,114 @@
 include_once $_SERVER['DOCUMENT_ROOT']."/include/common.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/function.php";
-include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/Rank.class.php";
 
 
 include_once $_SERVER['DOCUMENT_ROOT']."/header.php";
+
+
 ?>
  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+	$(function(){
+		var swiper = new Swiper(".vote-swiper", {	
+		spaceBetween: 30,
+		scrollbar: {
+			el: ".swiper-scrollbar",
+			hide: false,
+		},
+	})
+	});
+</script>
 <style>
 	
 </style>
 
 <main id="main">
 	<section class="main-visual">
-		<div class="visual-wrap">
-			<img src="/img/main_visual1.png" alt="DASH">
+		<div class="visual-area">
+			<div class="visual-wrap">
+				<a href="https://youtu.be/7UecFm_bSTU" target="_blank">					
+					<img src="/img/main_visual2.jpg" alt="DASH">
+					<div class="txt-wrap">
+						<p class="txt">
+							Fe3O4 : BREAK<br>
+							<span>DASH</span>
+						</p>
+					</div>
+				</a>
+			</div>
 		</div>
 	</section>
 	<section class="section section1">
 		<div class="section-wrap">
 			<div class="size">
-				<div class="tit-area clear">
-					<div class="tit-box">
-						<h2 class="gd-dot">One Click Streming</h2>
-						<span>한번의 클릭으로 다양한 서비스를 이용해보세요.</span>						
-					</div>		
-				</div>
-				<div class="cont-area">
-					<div class="list-wrap">
-						<ul class="clear">
-							<li>
-								<a href="javascript:;">
-									<div class="box box2">
-										<div class="ico">
-											<img src="img/ico_sec3_2.svg">
+				<div class="section-half-wrap flex-box">
+					<div class="section-half">
+						<div class="tit-area clear">
+							<div class="tit-box">
+								<h2 class="gd-dot">Vote to NMIXX</h2>
+								<span>진행중인 투표</span>						
+							</div>		
+						</div>
+						<div class="cont-area">
+							<div class="slide-area">
+								<div class="swiper vote-swiper">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="swiper-box">
+												<a href="">
+													<div class="swiper-cont">
+														<div class="vote-title">
+															<h3>투표1</h3>
+															<span>2024-05-13 ~ 2024-08-07</span>
+														</div>
+														<div class="vote-content">
+															test
+														</div>
+													</div>
+												</a>
+											</div>
 										</div>
-										<div class="txt">
-											<em>Melon</em>	
+										<div class="swiper-slide">
+											<div class="swiper-box">
+												<a href="">
+													<div class="swiper-cont">
+														<div class="vote-title">
+															<h3>투표1</h3>
+															<span>2024-05-13 ~ 2024-08-07</span>
+														</div>
+														<div class="vote-content">
+															test
+														</div>
+													</div>
+												</a>
+											</div>
 										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<div class="box box2">
-										<div class="ico">
-											<img src="img/ico_sec3_2.svg">
-										</div>
-										<div class="txt">
-											<em>Melon</em>	
-										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<div class="box box2">
-										<div class="ico">
-											<img src="img/ico_sec3_2.svg">
-										</div>
-										<div class="txt">
-											<em>Melon</em>	
-										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<div class="box box2">
-										<div class="ico">
-											<img src="img/ico_sec3_2.svg">
-										</div>
-										<div class="txt">
-											<em>Melon</em>	
-										</div>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<div class="box box2">
-										<div class="ico">
-											<img src="img/ico_sec3_2.svg">
-										</div>
-										<div class="txt">
-											<em>Melon</em>	
+										<div class="swiper-slide">
+											<div class="swiper-box">
+												<a href="">
+													<div class="swiper-cont">
+														<div class="vote-title">
+															<h3>투표1</h3>
+															<span>2024-05-13 ~ 2024-08-07</span>
+														</div>
+														<div class="vote-content">
+															test
+														</div>
+													</div>
+												</a>
+											</div>
 										</div>
 									</div>
-								</a>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<div class="box box2">
-										<div class="ico">
-											<img src="img/ico_sec3_2.svg">
-										</div>
-										<div class="txt">
-											<em>Melon</em>	
-										</div>
-									</div>
-								</a>
-							</li>
-						</ul>
+									<div class="swiper-scrollbar"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-half">
+						<a class="twitter-timeline" href="https://twitter.com/NMIXX_xstream?ref_src=twsrc%5Etfw" height="328">Tweets by NMIXX_xstream</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					</div>
 				</div>
 

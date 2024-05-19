@@ -285,37 +285,33 @@ class Seo {
 		return $data;
 	}
 
-	// 카테고리
-	function getCategory($req='') {
+	// 목록
+	function getDataFromUrl($url='') {
 		$dbconn = new DBConnection();
 		$conn = $dbconn->getConnection();
+		
+        $explode_url = explode("?", $url);
+		$url = $explode_url[0];
 
+		if(isset($_REQUEST['bcode'])){
+			$url .= "?bcode=".$_REQUEST['bcode'];
+		}
+
+        // $url_slash = explode("/", $url);
+        // if(empty(end($url_slash))) $url .= "index.php";
+
+		
 		$sql = "
-			SELECT *,
-			(SELECT COUNT(*) FROM board WHERE B_categoryfk = board_category.C_sqkey AND B_delyn = 0) AS b_cnt
-			FROM board_category WHERE B_code = '{$req['P_code']}' AND C_delyn = 0 ORDER BY C_ordinumber ASC
-		";
+			SELECT *
+			FROM ".$this->tableName."
+			WHERE seo_url = '".$url."'";
 		
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
-
-		return $result;
-	}
-
-	function getCategoryAllCount($req='') {
-		$dbconn = new DBConnection();
-		$conn = $dbconn->getConnection();
-
-		$sql = "
-			SELECT COUNT(*) AS cnt FROM board_category WHERE B_code = '{$req['P_code']}'
-		";
 		
-		$result = mysqli_query($conn, $sql);
-		mysqli_close($conn);
+		$data = mysqli_fetch_assoc($result);
 
-		$cnt = mysqli_fetch_assoc($result);
-
-		return $cnt;
+		return $data;
 	}
 
 	// rownum 구하기

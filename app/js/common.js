@@ -73,6 +73,17 @@ $(function(){
         // }
 	});*/
 
+	$('.sub-gnb1 > ul > li > a').on('click', function(){
+
+		let $idx = $(this).parent().index();
+
+		$(this).parent().siblings().children('a').removeClass('on');
+		$('#sub.guide .img-area .img-wrap').css('display', 'none');
+		$(this).addClass('on');
+		$('#sub.guide .img-area .img-wrap').eq($idx).css('display', 'block');
+		
+	});
+
 
 });
 
