@@ -55,7 +55,8 @@ $oresult = $official->getList($_REQUEST);
 		<div class="visual-area">
 			<div class="visual-wrap">
 				<a href="https://youtu.be/7UecFm_bSTU" target="_blank">					
-					<img src="/img/main_visual2.jpg" alt="DASH">
+					<img src="/img/main_visual2.jpg" alt="DASH" class="visual-pc">				
+					<img src="/img/main_visual_mo2.jpg" alt="DASH" class="visual-mo">
 					<div class="txt-wrap">
 						<p class="txt">
 							Fe3O4 : BREAK<br>

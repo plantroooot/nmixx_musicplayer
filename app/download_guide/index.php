@@ -10,7 +10,7 @@
         <section class="section section1">
             <div class="sec-wrap">
                 <div class="size">
-                    <div class="sub-gnb sub-gnb1">
+                    <div class="sub-gnb sub-gnb1 sub-gnb1_1">
                         <ul>
                             <li>
                                 <a href="javascript:;" class="on">

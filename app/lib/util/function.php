@@ -394,6 +394,18 @@ function fileupload($filename, $uploadFullPath, $req, $isSize, $maxSaveSize) {
 }
 
 
+function MobileCheck() { 
+    global $HTTP_USER_AGENT; 
+	$HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+    $MobileArray  = array("iphone","lgtelecom","skt","mobile","samsung","nokia","blackberry","android","android","sony","phone", "ipad", "ipod", "nexus", "lg", "macintosh", "ios");
+
+    $checkCount = 0; 
+        for($i=0; $i<sizeof($MobileArray); $i++){ 
+            if(preg_match("/$MobileArray[$i]/", strtolower($HTTP_USER_AGENT))){ $checkCount++; break; } 
+        } 
+   return ($checkCount >= 1); 
+}
+
 /**
  * DB result 값 array 배열로 변경
  * @param unknown $rst

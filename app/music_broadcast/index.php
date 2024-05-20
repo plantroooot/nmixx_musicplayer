@@ -48,7 +48,7 @@
                                         <em class="ico">
                                             <img src="/img/idol_champ.png" alt="idol_champ">
                                         </em>
-                                        <span>아이돌챔프</span>
+                                        <span>디거스</span>
                                     </div>
                                 </a>
                             </li>
@@ -102,7 +102,7 @@
                             </div>
                             <div class="img-wrap img-wrap1">
                                 <div class="imgs">
-                                    <img src="/img/idol_champ_guide.png" alt="아이돌챔프 투표 가이드">
+                                    <img src="/img/diggus_guide.png" alt="디거스 투표 가이드">
                                 </div>
                             </div>
                             <div class="img-wrap img-wrap1">

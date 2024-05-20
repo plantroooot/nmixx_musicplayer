@@ -22,7 +22,12 @@ $seo_data = $seo->getDataFromUrl($url);
     <meta name="author" content=" <?=COMPANY_NAME?>">
     <meta name="name" content="<?=COMPANY_NAME?>">
     <meta name="type" content="website">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no"> -->
+    <?php if(MobileCheck() > 0) {?>
+    <meta name="viewport" content="width=640, user-scalable=0">
+    <?php } else { ?>
+    <meta name="viewport" content="width=1920, user-scalable=0">
+    <?php } ?>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no, address=no, email=no">
     <meta name="title" content="">
@@ -51,6 +56,7 @@ $seo_data = $seo->getDataFromUrl($url);
     <link rel="stylesheet" href="/css/reset.css?v=<?=time()?>">
     <link rel="stylesheet" href="/css/component.css?v=<?=time()?>">
     <link rel="stylesheet" href="/css/content.css?v=<?=time()?>">
+    <link rel="stylesheet" href="/css/responsive.css?v=<?=time()?>">
 
     <!-- scripts -->
     <script src="/js/jquery-1.12.0.min.js" type="text/javascript"></script>
