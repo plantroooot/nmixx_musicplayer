@@ -46,7 +46,7 @@
                                 <a href="javascript:;">
                                     <div class="con idol_champ">
                                         <em class="ico">
-                                            <img src="/img/idol_champ.png" alt="idol_champ">
+                                            <img src="/img/diggus.png" alt="idol_champ">
                                         </em>
                                         <span>디거스</span>
                                     </div>

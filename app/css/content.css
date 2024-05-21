@@ -35,6 +35,8 @@
 #main .section1 .vote-swiper .swiper-slide .swiper-cont .vote-title h3{font-size: 2.6rem; color: #fff;}
 #main .section1 .vote-swiper .swiper-slide .swiper-cont .vote-title span{display: block; margin-top: 15px; font-size: 1.6rem; color: #fff; font-weight: 500;}
 #main .section1 .vote-swiper .swiper-slide .swiper-cont .vote-content{margin-top: 20px; font-size: 1.6rem; color: #fff;}
+#main .section1 .twitter-section .section-shadow{padding: 0; border-radius: 15px;}
+
 
 #main .section2 .list-wrap ul{display: grid; gap: 30px; grid-template-columns: 1fr 1fr 1fr;}
 #main .section2 .list-wrap ul li{}
@@ -58,6 +60,16 @@
 #main .section2 .list-wrap ul li .vibe p{color: #a42e87;}
 #main .section2 .list-wrap ul li .melon_cash:hover{background-color: #07d931; border-color: #07d931}
 #main .section2 .list-wrap ul li .radio:hover{background-color: #333;}
+#main .section2 .list-wrap ul li .apple_music{border-color: #fa3650;}
+#main .section2 .list-wrap ul li .apple_music:hover{background-color: #fa3650;}
+#main .section2 .list-wrap ul li .apple_music p{color: #fa3650;}
+#main .section2 .list-wrap ul li .spotify{border-color: #1ed760;}
+#main .section2 .list-wrap ul li .spotify:hover{background-color: #1ed760;}
+#main .section2 .list-wrap ul li .spotify p{color: #1ed760;}
+#main .section2 .list-wrap ul li .youtube_music{border-color: #fe0000;}
+#main .section2 .list-wrap ul li .youtube_music:hover{background-color: #fe0000;}
+#main .section2 .list-wrap ul li .youtube_music p{color: #fe0000;}
+
 #main .section2 .right-wrap .btm-area{margin-top: 20px;}
 #main .section2 .right-wrap .btm-area .section-shadow{padding: 35px;}
 #main .section2 .right-wrap .btm-area .sns-list ul{display: flex; gap: 30px;}

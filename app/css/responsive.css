@@ -44,9 +44,10 @@
     #main .section-half:first-child{margin-top: 0;}
 
     #main .section2 .right-wrap .btm-area{margin-top: 50px;}
+    #main .section2 .right-wrap .btm-area .sns-list{width: 100%; max-width: 360px; margin: 0 auto;}
     #main .section2 .right-wrap .btm-area .sns-list ul{flex-wrap: wrap; justify-content: center; gap: 25px;}
     #main .section2 .right-wrap .btm-area .sns-list ul li a .ico{height: auto;}
-    #main .section2 .right-wrap .btm-area .sns-list ul li a .ico img{max-width: none; height: 65px;}
+    #main .section2 .right-wrap .btm-area .sns-list ul li a .ico img{max-width: none; height: 50px;}
     #main .section2 .right-wrap .btm-area .sns-list ul li a .txt{font-size: 1.8rem;}
     
 

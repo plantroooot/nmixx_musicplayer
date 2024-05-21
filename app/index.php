@@ -76,7 +76,7 @@ $oresult = $official->getList($_REQUEST);
 							<div class="tit-area clear">
 								<div class="tit-box">
 									<h2 class="gd-dot">Vote for NMIXX</h2>
-									<span>ⓘ 현재 진행중인 투표 목록입니다</span>						
+									<span>현재 진행중인 투표 목록입니다</span>						
 								</div>		
 							</div>
 							<div class="cont-area">
@@ -122,8 +122,10 @@ $oresult = $official->getList($_REQUEST);
 							</div>
 						</div>
 					</div>
-					<div class="section-half">
-						<a class="twitter-timeline" href="https://twitter.com/NMIXX_xstream?ref_src=twsrc%5Etfw" height="383">Tweets by NMIXX_xstream</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					<div class="section-half twitter-section">
+						<div class="section-shadow">
+							<a class="twitter-timeline" href="https://twitter.com/NMIXX_xstream?ref_src=twsrc%5Etfw" height="383">Tweets by NMIXX_xstream</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -138,7 +140,7 @@ $oresult = $official->getList($_REQUEST);
 							<div class="tit-area clear">
 								<div class="tit-box">
 									<h2 class="gd-dot">원클릭 스밍(Korea)</h2>
-									<span>ⓘ 한번의 클릭으로 다양한 서비스를 이용해보세요</span>		
+									<span>한번의 클릭으로 다양한 서비스를 이용해보세요</span>		
 								</div>		
 							</div>
 							<div class="cont-area">
@@ -210,7 +212,7 @@ $oresult = $official->getList($_REQUEST);
 										</li>
 										<li>
 											<a href="https://www.melon.com/buy/meloncash/charge.htm" target="_blank">
-												<div class="box melon_cash">
+												<div class="box melon">
 													<div class="txt">
 														<p>
 															<span class="arrow">→</span>
@@ -251,7 +253,7 @@ $oresult = $official->getList($_REQUEST);
 								<div class="tit-area clear">
 									<div class="tit-box">
 										<h2 class="gd-dot">원클릭 스밍(Global)</h2>
-										<span>ⓘ 한번의 클릭으로 다양한 서비스를 이용해보세요</span>		
+										<span>한번의 클릭으로 다양한 서비스를 이용해보세요</span>		
 									</div>		
 								</div>
 								<div class="cont-area">
@@ -259,7 +261,7 @@ $oresult = $official->getList($_REQUEST);
 										<ul>
 											<li>
 												<a href="https://music.apple.com/kr/playlist/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D/pl.u-11zBJ7ohNEMzG0X" target="_blank">
-													<div class="box radio">
+													<div class="box apple_music">
 														<div class="txt">
 															<p>
 																<span class="arrow">→</span>
@@ -275,7 +277,7 @@ $oresult = $official->getList($_REQUEST);
 											</li>
 											<li>
 												<a href="https://open.spotify.com/playlist/30YICu0zxuwFvZHMUOU1M2?si=dafbebadc08848a9" target="_blank">
-													<div class="box radio">
+													<div class="box spotify">
 														<div class="txt">
 															<p>
 																<span class="arrow">→</span>
@@ -291,7 +293,7 @@ $oresult = $official->getList($_REQUEST);
 											</li>
 											<li>
 												<a href="javascript:;" target="_blank">
-													<div class="box radio">
+													<div class="box youtube_music">
 														<div class="txt">
 															<p>
 																<span class="arrow">→</span>
@@ -315,7 +317,7 @@ $oresult = $official->getList($_REQUEST);
 								<div class="tit-area clear">
 									<div class="tit-box">
 										<h2 class="gd-dot">NMIXXX OFFICIAL</h2>
-										<span>ⓘ NMIXX 공식 계정입니다</span>		
+										<span>NMIXX 공식 계정입니다</span>		
 									</div>		
 								</div>
 								<div class="cont-area">
