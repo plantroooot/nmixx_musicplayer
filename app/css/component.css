@@ -994,7 +994,7 @@ select::-ms-expand { display:none; }
     popup
 ================================================== */
 
-.popup {display: none; width: 100%; height: 100%;  position: fixed; left: 0; top: 0; z-index:2000; }
+.popup {display: none; width: 100%; height: 100%;  position: fixed; left: 0; top: 0; z-index:2000; background-color: rgba(0, 0, 0, 0.5);}
 .popup.bg { background-color: rgba(0, 0, 0, 1); }
 .popup .popup-body{width: 100%; max-width: 905px; margin: 0 auto; height: 100%; display: flex; justify-content: center; align-items: center; }
 .popup .popup-body.small { max-width: 500px; }
@@ -1041,8 +1041,15 @@ select::-ms-expand { display:none; }
 .onclickStreaming.bugs-onclick .popup-cont .list-wrap ul li a:hover{background-color: #ff3f32; border-color: #ff3f32;}
 .onclickStreaming.vibe-onclick .popup-cont .list-wrap ul li a:hover{background-color: #a42e87; border-color: #a42e87;}
 
-
-
+#schedulePopup .pop-inner{border-radius: 30px;}
+#schedulePopup .popup-title h2{font-size: 2.4rem;}
+#schedulePopup .popup-cont{padding-top: 30px; border-top: 1px solid #eaeaea; box-sizing: border-box;}
+#schedulePopup .list-wrap ul li{margin-top: 20px;}
+#schedulePopup .list-wrap ul li:first-child{margin-top: 0;}
+#schedulePopup .list-wrap ul li .box{position: relative; padding-right: 85px; box-sizing: border-box;}
+#schedulePopup .list-wrap ul li .box h3{font-size: 2.2rem;}
+#schedulePopup .list-wrap ul li .box span{display: block; margin-top: 10px; font-size: 1.8rem;}
+#schedulePopup .list-wrap ul li .box a{padding: 0 10px; height: 25px; line-height: 25px; font-size: 1.4rem; position: absolute; right: 0; top: 50%; transform: translateY(-50%); border: 1px solid #e1e1e1; border-radius: 8px;}
 
 /* ==================================================
     반응형

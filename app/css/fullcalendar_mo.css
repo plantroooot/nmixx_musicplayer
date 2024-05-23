@@ -1,0 +1,22 @@
+@charset "utf-8";
+.calendarWrap .fc .fc-toolbar{justify-content: center; gap: 14px;}
+.calendarWrap .fc .fc-toolbar-title{font-size: 3.2rem; font-weight: 800; letter-spacing: -0.25px;}
+.calendarWrap .fc .fc-button{padding: 0; width: 36px; height: 36px; background: #fff; border: 1px solid #ddd; border-radius: 50%;}
+.calendarWrap .fc .fc-button .fc-icon{font-size: 1.8rem; color: #000;}
+.calendarWrap .fc .fc-button-primary:hover{border: 1px solid #ddd !important; background: none !important; box-shadow: none;}
+.calendarWrap .fc-theme-standard td, .calendarWrap .fc-theme-standard th, .calendarWrap .fc-theme-standard .fc-scrollgrid{border: none; text-align: center; text-transform: uppercase;}
+.calendarWrap .fc .fc-daygrid-day-top{align-items: center; width: 49px; height: 49px; position: relative;}
+.calendarWrap .fc .fc-daygrid-day-top a{width: 100%; height: 100%; padding: 0; line-height: 49px;}
+.calendarWrap .fc .fc-daygrid-day-top.on::after{content: ''; display: block; clear: both; width: 5px; height: 5px; position: absolute; left: 50%; margin-left: -2.5px; top: 6px; border-radius: 50%; background-color: #092197; z-index: 5;}
+.calendarWrap .fc .fc-daygrid-day-frame{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+.calendarWrap .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{display: none;}
+.calendarWrap .fc-theme-standard th{font-size: 1.8rem; font-weight: 800; letter-spacing: -0.25px;}
+.calendarWrap .fc-theme-standard td{font-size: 2rem; font-weight: 600; letter-spacing: -0.25px; cursor: pointer;}
+.calendarWrap .fc-theme-standard th:first-child, .calendarWrap .fc-day-sun{color: #db0909;}
+.calendarWrap .fc-theme-standard th:last-child, .calendarWrap .fc-day-sat{color: #092197;}
+.calendarWrap .fc-widget-header thead tr th:first-child {color: #fe782f;}
+.calendarWrap .fc .fc-toolbar.fc-header-toolbar{padding-bottom: 20px; border-bottom: 1px solid #ddd;}
+.calendarWrap .fc .fc-cell-shaded, .calendarWrap .fc .fc-day-disabled, .calendarWrap .fc .fc-daygrid-day.fc-day-today{background: none;}
+.calendarWrap .fc .fc-daygrid-day.fc-day-today a{align-items: center; width: 49px; height: 49px; background: #092197; text-align: center; border-radius: 50%; color: #fff;}
+.calendarWrap .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-top.on::after{background-color: #fff;}
+/* .calendarWrap .fc .fc-daygrid-day-frame{min-height: 120%;} */
