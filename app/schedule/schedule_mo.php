@@ -35,10 +35,11 @@
                 left: 'prev',
             },
             editable: true, // false로 변경 시 draggable 작동 x 
-            dayMaxEventRows: 3, // 이벤트 표시 최대 행 수
             showNonCurrentDates: false, // 이전 달과 다음 달의 날짜를 표시하지 않음
             fixedWeekCount: false, // 각 월에 항상 6주 표시
             events : infolist,
+            selectable: true,
+            unselectAuto: false,
             dateClick: function (info) {
 
                 $('#schedulePopup h2').text('');
@@ -85,10 +86,9 @@
 
                     $('#schedulePopup .list-wrap ul').html(tag);
 
-
-
                     openPopup('schedulePopup');
                 }
+                // console.log(info);
 
             },
             eventDidMount: function (e) {

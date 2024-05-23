@@ -1,4 +1,7 @@
 @charset "utf-8";
+.fc-unselectable {
+    pointer-events: auto !important;
+}
 .calendarWrap .fc .fc-toolbar{justify-content: center; gap: 14px;}
 .calendarWrap .fc .fc-toolbar-title{font-size: 3.2rem; font-weight: 800; letter-spacing: -0.25px;}
 .calendarWrap .fc .fc-button{padding: 0; width: 36px; height: 36px; background: #fff; border: 1px solid #ddd; border-radius: 50%;}

@@ -91,14 +91,18 @@ function openPopup(id){
 	$('#'+id).css('display', 'block');
 }
 
-$(document).on('click', function(e){
-	// console.log(e.target.className);
-	let targetClassName = e.target.className;
-	if(targetClassName.indexOf('onclickStreaming') > -1 || targetClassName.indexOf('popup-body') > -1){
-		// console.log(1);
-		$('.popup').css('display', 'none');
-	}
-});
+function closePopup(){
+	$('.popup').css('display', 'none');
+}
+
+// $(document).on('click', function(e){
+// 	// console.log(e.target.className);
+// 	let targetClassName = e.target.className;
+// 	if(targetClassName.indexOf('onclickStreaming') > -1 || targetClassName.indexOf('popup-body') > -1){
+// 		// console.log(1);
+// 		$('.popup').css('display', 'none');
+// 	}
+// });
 
 
 
