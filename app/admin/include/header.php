@@ -44,7 +44,6 @@ $(window).load(function(){
                 <li class="tnb_li"><a href="/" class="tnb_community" target="_blank" title="커뮤니티 바로가기">커뮤니티 바로가기</a></li>
                 <li class="tnb_li"><button type="button" class="tnb_mb_btn">관리자<span class="./img/btn_gnb.png">메뉴열기</span></button>
                     <ul class="tnb_mb_area">
-                        <li><a href="/member_form.php?w=u&amp;mb_id=<?php echo $member['mb_id'] ?>">관리자정보</a></li>
                         <li id="tnb_logout"><a href="/admin/include/logout.php">로그아웃</a></li>
                     </ul>
                 </li>
@@ -100,6 +99,7 @@ $(window).load(function(){
                     </div>
                 </div>
             </li>  
+            <?/*
             <li class="gnb_li">
                 <button type="button" class="btn_op menu-200 menu-order-1" title="관리자관리">관리자관리</button>
                 <div class="gnb_oparea_wr">
@@ -113,6 +113,7 @@ $(window).load(function(){
                     </div>
                 </div>
             </li>
+            */?>
         </ul>
     </nav>
 </header>
