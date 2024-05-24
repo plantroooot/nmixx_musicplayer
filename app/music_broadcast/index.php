@@ -46,19 +46,19 @@
                                 <a href="javascript:;">
                                     <div class="con idol_champ">
                                         <em class="ico">
-                                            <img src="/img/diggus.png" alt="idol_champ">
+                                            <img src="/img/idol_champ.png" alt="idol_champ">
                                         </em>
-                                        <span>디거스</span>
+                                        <span>아이돌챔프</span>
                                     </div>
                                 </a>
                             </li>
                             <li>
                                 <a href="javascript:;">
-                                    <div class="con idol_plus">
+                                    <div class="con diggus">
                                         <em class="ico">
-                                            <img src="/img/idol_plus.png" alt="idol_plus">
+                                            <img src="/img/diggus.png" alt="diggus">
                                         </em>
-                                        <span>아이돌플러스</span>
+                                        <span>디거스</span>
                                     </div>
                                 </a>
                             </li>
@@ -102,12 +102,12 @@
                             </div>
                             <div class="img-wrap img-wrap1">
                                 <div class="imgs">
-                                    <img src="/img/diggus_guide.png" alt="디거스 투표 가이드">
+                                    <img src="/img/idol_champ_guide.png" alt="아이돌챔프 투표 가이드">
                                 </div>
                             </div>
                             <div class="img-wrap img-wrap1">
                                 <div class="imgs">
-                                    <img src="/img/idol_plus_guide.png" alt="아이돌플러스 투표 가이드">
+                                    <img src="/img/diggus_guide.png" alt="디거스 투표 가이드">
                                 </div>
                             </div>
                             <div class="img-wrap img-wrap1">

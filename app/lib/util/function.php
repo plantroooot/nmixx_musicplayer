@@ -545,5 +545,24 @@ function getVoteStatus($type){
 	}
 }
 
+function getGradation($number) {
+    $gradation = [
+		'linear-gradient(to right, #96d797 0%,#ecf6eb 100%)', 
+		'linear-gradient(to right, #7dc8c3 0%,#e5f3f4 100%)', 
+		'linear-gradient(to right, #ffbcb4 0%,#fff1f1 100%)', 
+		'linear-gradient(to right, #fad703 0%,#fff6cd 100%)', 
+		'linear-gradient(to right, #fdf6e6 0%,#fefdf9 100%)'
+	];
+    $index = ($number - 1) % 5;  // 0부터 4까지의 인덱스를 얻기 위해 1을 빼고 5로 나눈 나머지를 구합니다.
+    return $gradation[$index];
+}
+
+/*
+	1. linear-gradient(to right, #96d797 0%,#ecf6eb 100%)
+	2. linear-gradient(to right, #7dc8c3 0%,#e5f3f4 100%)
+	3. linear-gradient(to right, #ffbcb4 0%,#fff1f1 100%)
+	4. linear-gradient(to right, #fad703 0%,#fff6cd 100%)
+	5. linear-gradient(to right, #fdf6e6 0%,#fefdf9 100%)
+*/
 
 ?>

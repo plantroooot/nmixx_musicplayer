@@ -8,7 +8,7 @@
             </div>
             <div class="popup-inner big">
                 <div class="popup-title">
-                    <h2>FE:3O4 <span class="melon">멜론</span> 원클릭 스트리밍</h2>
+                    <h2>Fe:3O4 <span class="melon">멜론</span> 원클릭 스트리밍</h2>
                 </div>
                 <div class="popup-cont">
                     <div class="cont cont1">

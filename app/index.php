@@ -92,7 +92,7 @@ $oresult = $official->getList($_REQUEST);
 											<div class="swiper-slide">
 												<div class="swiper-box">
 													<a href="<?php echo $vpost_links[0] ? $vpost_links[0] : 'javascript:;'; ?>" <?php echo $vpost_links[0] ? "target='_blank'" : ''; ?>>
-														<div class="swiper-cont">
+														<div class="swiper-cont" style="background: <?php echo getGradation($key+1); ?>">
 															<div class="vote-title">
 																<h3><?php echo $vrow['post_title']; ?></h3>
 																<span><?php echo getYMD($vrow['post_startdate'])?> ~ <?php echo getYMD($vrow['post_enddate'])?></span>

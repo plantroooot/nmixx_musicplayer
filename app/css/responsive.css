@@ -1,8 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
 
+@media screen and (max-width: 1650px){
+    #header .header-body .header-inner{padding: 0 20px;}
+    #main .main-visual .visual-area{padding: 0 20px;}
+    #header .header-body .gnb-wrap > ul > li > a{padding: 0 25px;}
+    .size {width:100%; padding:0 20px; box-sizing: border-box;}
+}
 @media screen and (max-width: 1200px){
-     .size {width:100%; padding:0 20px; box-sizing: border-box;}
 }
 @media screen and (max-width: 1024px){
     #sub.product .graph-select{position:absolute; bottom:101%; left:0; }

@@ -64,11 +64,11 @@
                     let tag_a = '';
 
                     for(let i = 0; i < targetDayEvent.length; i++){
-                        let timeArr = targetDayEvent[0].start.split(' ')[1].split(':');
+                        let timeArr = targetDayEvent[i].start.split(' ')[1].split(':');
                         let time = timeArr[0]+':'+timeArr[1];
                         time = time != '00:00' ? time : '';
                         let url = targetDayEvent[i].sinfo.sche_url;
-                        if(url != '' && url != null){
+                        if(url != '' && url != null && url != ' '){
                             tag_a = `<a href="${url}" target="_blank">바로가기</a>`
                         }else{
                             tag_a = '';

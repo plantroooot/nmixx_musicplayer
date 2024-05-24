@@ -18,7 +18,7 @@
 #main .main-visual .visual-mo{display: none;}
 #main .main-visual .visual-wrap a:hover{filter: grayscale(0);}
 #main .main-visual .visual-wrap a img{transform: translateY(-50px);}
-#main .main-visual .txt-wrap p.txt{font-size: 5rem; font-weight: 700; color: #fff; letter-spacing: 3px; position: absolute; left: 40px; bottom: 40px;}
+#main .main-visual .txt-wrap p.txt{font-size: 5rem; font-weight: 700; color: #fff; letter-spacing: 2px; position: absolute; left: 40px; bottom: 40px;}
 #main .main-visual .txt-wrap p.txt span{font-size: 4rem;}
 
 #main .size{max-width: 100%;}
@@ -31,7 +31,7 @@
 #main .section1 .section-wrap{padding-bottom: 0 !important;}
 #main .section1 .vote-swiper .swiper-wrapper{padding-bottom: 15px; box-sizing: border-box;}
 #main .section1 .vote-swiper .swiper-slide a{display: block;}
-#main .section1 .vote-swiper .swiper-slide .swiper-cont{padding: 30px; box-sizing: border-box; height: 200px; background: #BA5370;  /* fallback for old browsers */ background: -webkit-linear-gradient(to right, #BA5370, #F4E2D8);  /* Chrome 10-25, Safari 5.1-6 */ background: linear-gradient(to right, #BA5370, #F4E2D8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ border-radius: 25px;}
+#main .section1 .vote-swiper .swiper-slide .swiper-cont{padding: 30px; box-sizing: border-box; height: 200px; border-radius: 25px;}
 #main .section1 .vote-swiper .swiper-slide .swiper-cont .vote-title h3{font-size: 2.6rem; color: #fff;}
 #main .section1 .vote-swiper .swiper-slide .swiper-cont .vote-title span{display: block; margin-top: 15px; font-size: 1.6rem; color: #fff; font-weight: 500;}
 #main .section1 .vote-swiper .swiper-slide .swiper-cont .vote-content{margin-top: 20px; font-size: 1.6rem; color: #fff;}
