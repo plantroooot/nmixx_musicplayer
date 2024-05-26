@@ -1045,6 +1045,11 @@ select::-ms-expand { display:none; }
 .onclickStreaming.bugs-onclick .popup-cont .list-wrap ul li a:hover{background-color: #ff3f32; border-color: #ff3f32;}
 .onclickStreaming.vibe-onclick .popup-cont .list-wrap ul li a:hover{background-color: #a42e87; border-color: #a42e87;}
 
+.radioSms .popup-cont .cont{margin-top: 50px;}
+.radioSms .list-area ul{width: 100%; max-width: 405px; margin: 0 auto; display: flex; gap: 35px;}
+.radioSms .list-area ul li .txt{margin-top: 10px; text-align: center; font-size: 1.6rem;}
+
+
 #schedulePopup .pop-inner{border-radius: 30px;}
 #schedulePopup .popup-title h2{font-size: 2.4rem;}
 #schedulePopup .popup-cont{padding-top: 30px; border-top: 1px solid #eaeaea; box-sizing: border-box;}

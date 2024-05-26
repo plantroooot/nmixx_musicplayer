@@ -99,9 +99,10 @@
 #sub .img-wrap1 .imgs{margin-top: 60px; display: inline-block; border-radius: 50px; overflow: hidden;}
 #sub .img-wrap1 .imgs:first-child{margin-top: 0;}
 #sub .sub-gnb1{padding-bottom: 40px; box-sizing: border-box; max-width: 850px; margin: 0 auto;}
+#sub .sub-gnb2{max-width: 550px;}
 /* #sub .sub-gnb1 ul{display: flex; justify-content: center; gap: 15px;} */
-#sub .sub-gnb1 ul{font-size: 0; text-align: center;}
-#sub .sub-gnb1 ul li{display: inline-block; margin-left: 15px;}
+#sub .sub-gnb1 ul{font-size: 0; text-align: center; margin-top: -15px;}
+#sub .sub-gnb1 ul li{display: inline-block; margin-left: 15px; margin-top: 15px;}
 #sub .sub-gnb1 ul li:first-child{margin-left: 0;}
 #sub .sub-gnb1 ul li a{display: block;}
 #sub .sub-gnb1 ul li a .con{padding: 0 16px; display: flex; align-items: center; gap: 7px; height: 46px; line-height: 46px; font-size: 2rem; font-weight: 600; color: #111; background-color: #d2d2d2; border-radius: 50px; transition: all 0.4s ease;}

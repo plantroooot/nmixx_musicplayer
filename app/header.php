@@ -47,7 +47,7 @@
 					}
 					?>
 				</ul>
-				<div class="util-wrap-mo">
+				<!-- <div class="util-wrap-mo">
 					<ul>
 						<li>
 							<a href="/" class="on">KOR</a>
@@ -56,10 +56,10 @@
 							<a href="/en/">ENG</a>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 
 			</div>
-			<div class="util-wrap util-wrap-pc">
+			<!-- <div class="util-wrap util-wrap-pc">
 				<ul>
 					<li>
 						<a href="/" class="on">KOR</a>
@@ -68,7 +68,7 @@
 						<a href="/en/">ENG</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<div class="mo-btn">
 				<div class="mo-btn-inner">
 					<input type="checkbox" id="hamburger">

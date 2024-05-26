@@ -7,18 +7,9 @@
     #header .header-body .gnb-wrap > ul > li > a{padding: 0 25px;}
     .size {width:100%; padding:0 20px; box-sizing: border-box;}
 }
-@media screen and (max-width: 1200px){
-}
-@media screen and (max-width: 1024px){
-    #sub.product .graph-select{position:absolute; bottom:101%; left:0; }
-}
-@media screen and (max-width: 640px){
-    html{font-size: 70%;}
-    #main{padding-top: 0;}
-    #sub{padding-top: 105px;}
-
+@media screen and (max-width: 1380px){
     .mo-btn{display: block;}
-    .popup .popup-body{padding: 0 40px; box-sizing: border-box;}
+    
     #header{position: absolute;}
     #header .header-body{border-bottom: 1px solid rgba(0, 0, 0, 0.2);}
     #header .header-body .header-inner{padding: 0 20px;}
@@ -31,6 +22,17 @@
     #header .header-body .util-wrap-mo{display: block;}
     
     #footer .footer-body .left-wrap .info-wrap ul li{font-size: 1.8rem;}
+}
+@media screen and (max-width: 1024px){
+    #sub.product .graph-select{position:absolute; bottom:101%; left:0; }
+}
+@media screen and (max-width: 640px){
+    html{font-size: 70%;}
+    #main{padding-top: 0;}
+    #sub{padding-top: 105px;}
+
+    .popup .popup-body{padding: 0 40px; box-sizing: border-box;}
+    .radioSms .list-area ul{max-width: 445px;}
 
     #main .section .section-wrap{padding: 50px 0 100px;}
     

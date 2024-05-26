@@ -124,7 +124,7 @@ $oresult = $official->getList($_REQUEST);
 					</div>
 					<div class="section-half twitter-section">
 						<div class="section-shadow">
-							<a class="twitter-timeline" href="https://twitter.com/NMIXX_xstream?ref_src=twsrc%5Etfw" height="383">Tweets by NMIXX_xstream</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+							<a class="twitter-timeline" href="https://twitter.com/NMIXX_xstream?ref_src=twsrc%5Etfw">Tweets by NMIXX_xstream</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 						</div>
 					</div>
 				</div>
@@ -227,7 +227,7 @@ $oresult = $official->getList($_REQUEST);
 											</a>
 										</li>
 										<li>
-											<a href="javascript:;">
+											<a href="javascript:;" onclick="openPopup('radioSmsApply');">
 												<div class="box radio">
 													<div class="txt">
 														<p>
@@ -292,7 +292,7 @@ $oresult = $official->getList($_REQUEST);
 												</a>
 											</li>
 											<li>
-												<a href="javascript:;" target="_blank">
+												<a href="https://music.youtube.com/playlist?list=PLJMJ3Y2SILZS_KJD7i8DFILiTkdEZk4ds" target="_blank">
 													<div class="box youtube_music">
 														<div class="txt">
 															<p>
@@ -472,5 +472,6 @@ $oresult = $official->getList($_REQUEST);
 	include_once $_SERVER['DOCUMENT_ROOT']."/include/popup/genie_oneclick.php";
 	include_once $_SERVER['DOCUMENT_ROOT']."/include/popup/bugs_oneclick.php";
 	include_once $_SERVER['DOCUMENT_ROOT']."/include/popup/vibe_oneclick.php";
+	include_once $_SERVER['DOCUMENT_ROOT']."/include/popup/radio_sms_apply.php";
 	include_once $_SERVER['DOCUMENT_ROOT']."/footer.php";
 ?>

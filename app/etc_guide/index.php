@@ -73,7 +73,7 @@
                             </div>
                             <div class="img-wrap img-wrap1">
                                 <div class="imgs">
-                                    <img src="/img/making_melon_id.jpg" alt="멜론아이디 생성 가이드">
+                                    <img src="/img/making_melon_id.png" alt="멜론아이디 생성 가이드">
                                 </div>
                             </div>
                             <div class="img-wrap img-wrap1">
@@ -88,7 +88,7 @@
                             </div>
                             <div class="img-wrap img-wrap1">
                                 <div class="imgs">
-                                    <img src="/img/have_to_do.png" alt="비활기 가이드">
+                                    <img src="/img/have_to_do.jpg" alt="비활기 가이드">
                                 </div>
                             </div>
                         </div>
