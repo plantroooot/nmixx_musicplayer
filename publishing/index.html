@@ -1,1 +1,767 @@
-퍼블리싱 페이지입니다.
+<html lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta charset="utf-8">
+    <title>NMIXX 음원총공팀</title>
+    <meta name="url" content="">
+    <meta name="author" content=" NMIXX 음원총공팀">
+    <meta name="name" content="NMIXX 음원총공팀">
+    <meta name="type" content="website">
+    <meta name="viewport" content="width=640, user-scalable=0">
+</head>
+
+<body>
+    <link rel="canonical" href="">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Styles -->
+    <link rel="stylesheet" href="../app/css/reset.css">
+    <link rel="stylesheet" href="../app/css/component.css">
+    <link rel="stylesheet" href="../app/css/content.css">
+    <link rel="stylesheet" href="../app/css/responsive.css">
+    <!-- scripts -->
+    <script src="../app/js/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../app/js/common.js"></script>
+    <div class="wrapper">
+        <script>
+            $(function () {
+                $('.mo-btn input[type="checkbox"]').on('change', function () {
+                    let checked = $(this).is(':checked');
+                    // console.log(checked);
+                    if (checked) {
+                        $('#header .gnb-wrap').slideDown(400);
+                        $('.mo-bg').fadeIn(400);
+                    } else {
+                        $('#header .gnb-wrap').slideUp(400);
+                        $('.mo-bg').fadeOut(400);
+                    }
+                });
+            });
+        </script>
+
+        <header id="header" class="wide">
+            <div class="header-body">
+                <div class="header-inner flex-box justify-content-between">
+                    <div class="logo-wrap">
+                        <h1>
+                            <a href="/" class="blind" style="background-image: url('../app/img/logo.png')">NMIXX 음원총공팀</a>
+                        </h1>
+                    </div>
+                    <div class="gnb-wrap">
+                        <ul>
+                            <li>
+                                <a href="/schedule/">NMIXX 스케줄</a>
+                            </li>
+                            <li>
+                                <a href="/streaminglist/">스트리밍 리스트</a>
+                            </li>
+                            <li>
+                                <a href="/streaming_guide/">스트리밍 가이드</a>
+                            </li>
+                            <li>
+                                <a href="/not_pause/">끊김 방지 가이드</a>
+                            </li>
+                            <li>
+                                <a href="/download_guide/">다운로드 가이드</a>
+                            </li>
+                            <li>
+                                <a href="/music_broadcast/">음악방송 가이드</a>
+                            </li>
+                            <li>
+                                <a href="/etc_guide/">기타 가이드</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mo-btn">
+                        <div class="mo-btn-inner">
+                            <input type="checkbox" id="hamburger">
+                            <label for="hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mo-bg"></div>
+
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+            $(function () {
+                var swiper = new Swiper(".vote-swiper", {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                    scrollbar: {
+                        el: ".swiper-scrollbar",
+                        hide: false,
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                })
+            });
+        </script>
+        <main id="main">
+            <section class="main-visual">
+                <div class="visual-area">
+                    <div class="visual-wrap">
+                        <a href="https://youtu.be/7UecFm_bSTU" target="_blank">
+                            <img src="../app/img/main_visual2.jpg" alt="DASH" class="visual-pc">
+                            <img src="../app/img/main_visual_mo2.jpg" alt="DASH" class="visual-mo">
+                            <div class="txt-wrap">
+                                <p class="txt">
+                                    Fe3O4 : BREAK<br>
+                                    <span>DASH</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="section section1">
+                <div class="section-wrap">
+                    <div class="size">
+                        <div class="section-half-wrap clear">
+                            <div class="section-half">
+                                <div class="section-shadow">
+                                    <div class="tit-area clear">
+                                        <div class="tit-box">
+                                            <h2 class="gd-dot">Vote for NMIXX</h2>
+                                            <span>현재 진행중인 투표 목록입니다</span>
+                                        </div>
+                                    </div>
+                                    <div class="cont-area">
+                                        <div class="slide-area">
+                                            <div
+                                                class="swiper vote-swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+                                                <div class="swiper-wrapper" id="swiper-wrapper-3b4afae268bc1dc8" aria-live="off" style="height: auto">
+                                                    <div class="swiper-slide swiper-slide-active" role="group"
+                                                        aria-label="1 / 2" style="width: 817px; margin-right: 15px;">
+                                                        <div class="swiper-box">
+                                                            <a href="https://bit.ly/3Vd096t" target="_blank">
+                                                                <div class="swiper-cont"
+                                                                    style="background: linear-gradient(to right, #96d797 0%,#ecf6eb 100%)">
+                                                                    <div class="vote-title">
+                                                                        <h3>[The 34th SMA] 월간 팬투표 (5월)</h3>
+                                                                        <span>2024-05-01 ~ 2024-05-31</span>
+                                                                    </div>
+                                                                    <div class="vote-content">
+                                                                        <p>싱가포르에 광고가 올라갈 수 있도록 엔믹스를 투표해주세요 !</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide swiper-slide-next" role="group"
+                                                        aria-label="2 / 2" style="width: 817px; margin-right: 15px;">
+                                                        <div class="swiper-box">
+                                                            <a href="https://bit.ly/3UZL7QZ" target="_blank">
+                                                                <div class="swiper-cont"
+                                                                    style="background: linear-gradient(to right, #7dc8c3 0%,#e5f3f4 100%)">
+                                                                    <div class="vote-title">
+                                                                        <h3>VIBE 플레이리스트 투표</h3>
+                                                                        <span>2024-05-17 ~ 2024-05-31</span>
+                                                                    </div>
+                                                                    <div class="vote-content">
+                                                                        VIBE 메인 플레이리스트에 올라갈 NMIXX의 DASH를 투표해주세요! </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-scrollbar swiper-scrollbar-horizontal">
+                                                    <div class="swiper-scrollbar-drag"
+                                                        style="transform: translate3d(0px, 0px, 0px); width: 396.361px;">
+                                                    </div>
+                                                </div>
+                                                <span class="swiper-notification" aria-live="assertive"
+                                                    aria-atomic="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section-half twitter-section">
+                                <div class="section-shadow">
+                                    <div class="twitter-timeline twitter-timeline-rendered"
+                                        style="display: flex; max-width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                                        <iframe id="twitter-widget-0" scrolling="no" frameborder="0"
+                                            allowtransparency="true" allowfullscreen="true" class=""
+                                            title="Twitter Timeline"
+                                            src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NMIXX_xstream?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=ko&amp;maxHeight=383px&amp;origin=https%3A%2F%2Fnmixxstream.com%2F&amp;sessionId=72197fb7ef5a2f92599d4939cddf1bf6cb64f1aa&amp;showHeader=true&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716"
+                                            style="position: absolute; visibility: hidden; width: 0px; height: 0px; display: block; flex-grow: 1;"></iframe>
+                                    </div><a class="twitter-timeline"
+                                        href="https://twitter.com/NMIXX_xstream?ref_src=twsrc%5Etfw" height="383"
+                                        data-twitter-extracted-i1716812191182352565="true">Tweets by NMIXX_xstream</a>
+                                    <script async="" src="https://platform.twitter.com/widgets.js"
+                                        charset="utf-8"></script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section section2">
+                <div class="section-wrap">
+                    <div class="size">
+                        <div class="section-half-wrap flex-box">
+                            <div class="section-half left-wrap">
+                                <div class="section-shadow">
+                                    <div class="tit-area clear">
+                                        <div class="tit-box">
+                                            <h2 class="gd-dot">원클릭 스밍(Korea)</h2>
+                                            <span>한번의 클릭으로 다양한 서비스를 이용해보세요</span>
+                                        </div>
+                                    </div>
+                                    <div class="cont-area">
+                                        <div class="list-wrap">
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:;" onclick="openPopup('melonOneClick');">
+                                                        <div class="box melon">
+                                                            <div class="txt">
+                                                                <p>
+                                                                    <span class="arrow">→</span>
+                                                                    <b>
+                                                                        멜론<br>
+                                                                        원클릭<br>
+                                                                        스트리밍
+                                                                    </b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" onclick="openPopup('genieOneClick');">
+                                                        <div class="box geine">
+                                                            <div class="txt">
+                                                                <p>
+                                                                    <span class="arrow">→</span>
+                                                                    <b>
+                                                                        지니<br>
+                                                                        원클릭<br>
+                                                                        스트리밍
+                                                                    </b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" onclick="openPopup('bugsOneClick');">
+                                                        <div class="box bugs">
+                                                            <div class="txt">
+                                                                <p>
+                                                                    <span class="arrow">→</span>
+                                                                    <b>
+                                                                        벅스<br>
+                                                                        원클릭<br>
+                                                                        스트리밍
+                                                                    </b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" onclick="openPopup('vibeOneClick');">
+                                                        <div class="box vibe">
+                                                            <div class="txt">
+                                                                <p>
+                                                                    <span class="arrow">→</span>
+                                                                    <b>
+                                                                        바이브<br>
+                                                                        원클릭<br>
+                                                                        스트리밍
+                                                                    </b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.melon.com/buy/meloncash/charge.htm"
+                                                        target="_blank">
+                                                        <div class="box melon">
+                                                            <div class="txt">
+                                                                <p>
+                                                                    <span class="arrow">→</span>
+                                                                    <b>
+                                                                        멜론<br>
+                                                                        캐시💵<br>
+                                                                        충전하기
+                                                                    </b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" onclick="openPopup('radioSmsApply');">
+                                                        <div class="box radio">
+                                                            <div class="txt">
+                                                                <p>
+                                                                    <span class="arrow">→</span>
+                                                                    <b>
+                                                                        라디오<br>
+                                                                        문자📻<br>
+                                                                        신청하기
+                                                                    </b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section-half right-wrap">
+                                <div class="top-area">
+                                    <div class="section-shadow">
+                                        <div class="tit-area clear">
+                                            <div class="tit-box">
+                                                <h2 class="gd-dot">원클릭 스밍(Global)</h2>
+                                                <span>한번의 클릭으로 다양한 서비스를 이용해보세요</span>
+                                            </div>
+                                        </div>
+                                        <div class="cont-area">
+                                            <div class="list-wrap">
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://music.apple.com/kr/playlist/%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D/pl.u-11zBJ7ohNEMzG0X"
+                                                            target="_blank">
+                                                            <div class="box apple_music">
+                                                                <div class="txt">
+                                                                    <p>
+                                                                        <span class="arrow">→</span>
+                                                                        <b>
+                                                                            애플뮤직<br>
+                                                                            원클릭<br>
+                                                                            스트리밍
+                                                                        </b>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://open.spotify.com/playlist/30YICu0zxuwFvZHMUOU1M2?si=dafbebadc08848a9"
+                                                            target="_blank">
+                                                            <div class="box spotify">
+                                                                <div class="txt">
+                                                                    <p>
+                                                                        <span class="arrow">→</span>
+                                                                        <b>
+                                                                            스포티파이<br>
+                                                                            원클릭<br>
+                                                                            스트리밍
+                                                                        </b>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://music.youtube.com/playlist?list=PLJMJ3Y2SILZS_KJD7i8DFILiTkdEZk4ds"
+                                                            target="_blank">
+                                                            <div class="box youtube_music">
+                                                                <div class="txt">
+                                                                    <p>
+                                                                        <span class="arrow">→</span>
+                                                                        <b>
+                                                                            유튜브<br>
+                                                                            원클릭<br>
+                                                                            스트리밍
+                                                                        </b>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btm-area">
+                                    <div class="section-shadow">
+                                        <div class="tit-area clear">
+                                            <div class="tit-box">
+                                                <h2 class="gd-dot">NMIXXX OFFICIAL</h2>
+                                                <span>NMIXX 공식 계정입니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="cont-area">
+                                            <div class="sns-list">
+                                                <ul class="clear">
+                                                    <li>
+                                                        <a href="https://nmixx.jype.com/" target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/jpg_logo.svg" alt="공식">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.youtube.com/@NMIXXOfficial"
+                                                            target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/ico_youtube_svg.svg" alt="유튜브">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.instagram.com/nmixx_official/"
+                                                            target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/ico_instargram_svg.svg" alt="인스타그램">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://twitter.com/NMIXX_official" target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/ico_x_svg.svg" alt="트위터">
+                                                            </div>
+                                                            <div class="txt">(공식)</div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://x.com/WE_NMIXX" target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/ico_x_svg.svg" alt="트위터">
+                                                            </div>
+                                                            <div class="txt">(멤버)</div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.facebook.com/NMIXXOfficial/"
+                                                            target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/ico_facebook_svg.svg" alt="페이스북">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.tiktok.com/@nmixx_official"
+                                                            target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/ico_tictok_svg.svg" alt="틱톡">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://weibo.com/NMIXXOfficial" target="_blank">
+                                                            <div class="ico">
+                                                                <img src="../app/img/ico_weibo_svg.svg" alt="웨이보">
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div id="melonOneClick" class="popup onclickStreaming melon-onclick">
+            <div class="popup-body">
+                <div class="popup-wrap">
+                    <div class="pop-close">
+                        <a href="javascript:;" onclick="closePopup();">
+                            <img src="../app/img/ico_close.png" alt="팝업닫기">
+                        </a>
+                    </div>
+                    <div class="popup-inner big">
+                        <div class="popup-title">
+                            <h2>Fe:3O4 <span class="melon">멜론</span> 원클릭 스트리밍</h2>
+                        </div>
+                        <div class="popup-cont">
+                            <div class="cont cont1">
+                                <div class="mini-title">
+                                    <h4>안드로이드</h4>
+                                    <span class="melon">4개의 버튼을 순서대로 모두 클릭해주세요.</span>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="http://ko.gl/Rpueg" target="_blank">Playlist #1</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://ko.gl/AGa9s" target="_blank">Playlist #2</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://ko.gl/UvCW7" target="_blank">Playlist #3</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://ko.gl/IZS7u" target="_blank">Playlist #4</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cont cont2">
+                                <div class="mini-title">
+                                    <h4>IOS(모바일)</h4>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="https://ko.gl/eRnQH" target="_blank">Playlist</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cont cont2">
+                                <div class="mini-title">
+                                    <h4>IOS(패드)</h4>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="http://ko.gl/CV5Lo" target="_blank">Playlist</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="genieOneClick" class="popup onclickStreaming genie-onclick">
+            <div class="popup-body">
+                <div class="popup-wrap">
+                    <div class="pop-close">
+                        <a href="javascript:;" onclick="closePopup();">
+                            <img src="../app/img/ico_close.png" alt="팝업닫기">
+                        </a>
+                    </div>
+                    <div class="popup-inner big">
+                        <div class="popup-title">
+                            <h2>Fe:3O4 <span class="genie">지니</span> 원클릭 스트리밍</h2>
+                        </div>
+                        <div class="popup-cont">
+                            <div class="cont cont1">
+                                <div class="mini-title">
+                                    <h4>안드로이드</h4>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="https://ko.gl/weai1" target="_blank">Playlist</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cont cont2">
+                                <div class="mini-title">
+                                    <h4>IOS(모바일)</h4>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="https://ko.gl/5QHbd" target="_blank">Playlist</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cont cont2">
+                                <div class="mini-title">
+                                    <h4>IOS(패드)</h4>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="https://ko.gl/hsSnh" target="_blank">Playlist</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bugsOneClick" class="popup onclickStreaming bugs-onclick">
+            <div class="popup-body">
+                <div class="popup-wrap">
+                    <div class="pop-close">
+                        <a href="javascript:;" onclick="closePopup();">
+                            <img src="../app/img/ico_close.png" alt="팝업닫기">
+                        </a>
+                    </div>
+                    <div class="popup-inner big">
+                        <div class="popup-title">
+                            <h2>Fe:3O4 <span class="bugs">벅스</span> 원클릭 스트리밍</h2>
+                        </div>
+                        <div class="popup-cont">
+                            <div class="cont cont1">
+                                <div class="mini-title">
+                                    <h4>안드로이드/IOS</h4>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="https://ko.gl/KykLB" target="_blank">Playlist</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="vibeOneClick" class="popup onclickStreaming vibe-onclick">
+            <div class="popup-body">
+                <div class="popup-wrap">
+                    <div class="pop-close">
+                        <a href="javascript:;" onclick="closePopup();">
+                            <img src="../app/img/ico_close.png" alt="팝업닫기">
+                        </a>
+                    </div>
+                    <div class="popup-inner big">
+                        <div class="popup-title">
+                            <h2>Fe:3O4 <span class="vibe">바이브</span> 원클릭 스트리밍</h2>
+                        </div>
+                        <div class="popup-cont">
+                            <div class="cont cont1">
+                                <div class="mini-title">
+                                    <h4>안드로이드/IOS</h4>
+                                    <span class="vibe">4개의 버튼을 순서대로 모두 클릭해주세요.</span>
+                                </div>
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul class="clear">
+                                            <li>
+                                                <a href="http://ko.gl/Rpueg" target="_blank">Playlist #1</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://ko.gl/AGa9s" target="_blank">Playlist #2</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://ko.gl/UvCW7" target="_blank">Playlist #3</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://ko.gl/IZS7u" target="_blank">Playlist #4</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="radioSmsApply" class="popup radioSms">
+            <div class="popup-body">
+                <div class="popup-wrap">
+                    <div class="pop-close">
+                        <a href="javascript:;" onclick="closePopup();">
+                            <img src="../app/img/ico_close.png" alt="팝업닫기">
+                        </a>
+                    </div>
+                    <div class="popup-inner big">
+                        <div class="popup-title">
+                            <h2>라디오 문자 신청하기</h2>
+                        </div>
+                        <div class="popup-cont">
+                            <div class="cont cont1">
+                                <div class="list-area">
+                                    <div class="list-wrap">
+                                        <ul>
+                                            <li>
+                                                <a href="sms:%238910?body=엔믹스의 DASH 신청합니다" target="_blank">
+                                                    <div class="ico">
+                                                        <img src="../app/img/ico_kbs_radio.png" alt="KBS 라디오">
+                                                    </div>
+                                                    <div class="txt">
+                                                        <span>KBS Cool FM</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="sms:%238000?body=엔믹스의 DASH 신청합니다" target="_blank">
+                                                    <div class="ico">
+                                                        <img src="../app/img/ico_mbc_radio.png" alt="MBC 라디오">
+                                                    </div>
+                                                    <div class="txt">
+                                                        <span>MBC FM4U</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="sms:%231077?body=엔믹스의 DASH 신청합니다" target="_blank">
+                                                    <div class="ico">
+                                                        <img src="../app/img/ico_sbs_radio.png" alt="SBS 라디오">
+                                                    </div>
+                                                    <div class="txt">
+                                                        <span>SBS POWER FM</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="footer-body">
+                <div class="size">
+                    <div class="footer-inner">
+                        <div class="left-wrap">
+                            <div class="footer-logo">
+                                <a href="/" class="blind" style="background-image: url('../app/img/logo.png');">NMIXX 음원총공팀</a>
+                            </div>
+                            <div class="info-wrap">
+                                <ul>
+                                    <li>
+                                        <span>Contact us : nmixx.stream@gmail.com</span>
+                                    </li>
+                                    <li>
+                                        <span>Twitter : @NMIXX_xstream</span>
+                                    </li>
+                                    <li>
+                                        <span>Copyright ⓒ 2024 NMIXX STREAMING TEAM All right reserved.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
