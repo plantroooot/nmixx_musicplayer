@@ -29,7 +29,7 @@
     #main {padding-top: 105px;}
 
     /* main-visual 설정 */
-    #main .main-visual .visual-wrap a {height: auto;}
+    #main .main-visual .visual-wrap a {height: 460px;}
     #main .main-visual .visual-wrap a img {transform: translateY(0);}
 
     /* 원클릭 스트리밍 grid, 폰트 사이즈, padding */
