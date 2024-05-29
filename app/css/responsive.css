@@ -25,20 +25,17 @@
 }
 @media screen and (max-width: 1024px){
     /* #sub.product .graph-select{position:absolute; bottom:101%; left:0; } */
-    
     #main {padding-top: 105px;}
 
     /* main-visual 설정 */
     #main .main-visual .visual-wrap a {height: 460px;}
     #main .main-visual .visual-wrap a img {transform: translateY(0);}
 
-    /* 원클릭 스트리밍 grid, 폰트 사이즈, padding */
-    #main .section2 .list-wrap ul {gap: 20px;grid-template-columns : 1fr 1fr;}
-    #main .section2 .list-wrap ul li .box {padding: 15px;}
-    #main .section2 .list-wrap ul li .box p {font-size: 2rem;}
 
-    /* 공식 계정 wrap 설정 */
-    #main .section2 .right-wrap .btm-area .sns-list ul {gap : 25px;flex-wrap: wrap;justify-content: center;}
+    /* 원클릭 스트리밍 none flex 설정 */
+    #main .section2 .section-wrap {padding-top: 0px;}
+    #main .section2 .section-wrap .section-half-wrap {width: 100%; margin-left: 0;display: block;}
+    #main .section2 .section-wrap .section-half-wrap .section-half {width: 100%; margin-left: 0; margin-top: 50px; float: none;}
 }
 @media screen and (max-width: 640px){
     html{font-size: 70%;}
