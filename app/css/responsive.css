@@ -24,7 +24,21 @@
     #footer .footer-body .left-wrap .info-wrap ul li{font-size: 1.8rem;}
 }
 @media screen and (max-width: 1024px){
-    #sub.product .graph-select{position:absolute; bottom:101%; left:0; }
+    /* #sub.product .graph-select{position:absolute; bottom:101%; left:0; } */
+    
+    #main {padding-top: 105px;}
+
+    /* main-visual 설정 */
+    #main .main-visual .visual-wrap a {height: auto;}
+    #main .main-visual .visual-wrap a img {transform: translateY(0);}
+
+    /* 원클릭 스트리밍 grid, 폰트 사이즈, padding */
+    #main .section2 .list-wrap ul {gap: 20px;grid-template-columns : 1fr 1fr;}
+    #main .section2 .list-wrap ul li .box {padding: 15px;}
+    #main .section2 .list-wrap ul li .box p {font-size: 2rem;}
+
+    /* 공식 계정 wrap 설정 */
+    #main .section2 .right-wrap .btm-area .sns-list ul {gap : 25px;flex-wrap: wrap;justify-content: center;}
 }
 @media screen and (max-width: 640px){
     html{font-size: 70%;}
@@ -52,7 +66,7 @@
 
     #main .section2 .right-wrap .btm-area{margin-top: 50px;}
     #main .section2 .right-wrap .btm-area .sns-list{width: 100%; max-width: 360px; margin: 0 auto;}
-    #main .section2 .right-wrap .btm-area .sns-list ul{flex-wrap: wrap; justify-content: center; gap: 25px;}
+    /* #main .section2 .right-wrap .btm-area .sns-list ul{flex-wrap: wrap; justify-content: center; gap: 25px;} */
     #main .section2 .right-wrap .btm-area .sns-list ul li a .ico{height: auto;}
     #main .section2 .right-wrap .btm-area .sns-list ul li a .ico img{max-width: none; height: 50px;}
     #main .section2 .right-wrap .btm-area .sns-list ul li a .txt{font-size: 1.8rem;}
