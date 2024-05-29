@@ -36,6 +36,9 @@
     #main .section2 .section-wrap {padding-top: 0px;}
     #main .section2 .section-wrap .section-half-wrap {width: 100%; margin-left: 0;display: block;}
     #main .section2 .section-wrap .section-half-wrap .section-half {width: 100%; margin-left: 0; margin-top: 50px; float: none;}
+
+    /* nmixx-official 가운데 정렬 */
+    #main .section2 .right-wrap .btm-area .sns-list ul{justify-content: center;}
 }
 @media screen and (max-width: 640px){
     html{font-size: 70%;}
@@ -63,7 +66,7 @@
 
     #main .section2 .right-wrap .btm-area{margin-top: 50px;}
     #main .section2 .right-wrap .btm-area .sns-list{width: 100%; max-width: 360px; margin: 0 auto;}
-    /* #main .section2 .right-wrap .btm-area .sns-list ul{flex-wrap: wrap; justify-content: center; gap: 25px;} */
+    #main .section2 .right-wrap .btm-area .sns-list ul{flex-wrap: wrap; justify-content: center; gap: 25px;}
     #main .section2 .right-wrap .btm-area .sns-list ul li a .ico{height: auto;}
     #main .section2 .right-wrap .btm-area .sns-list ul li a .ico img{max-width: none; height: 50px;}
     #main .section2 .right-wrap .btm-area .sns-list ul li a .txt{font-size: 1.8rem;}
