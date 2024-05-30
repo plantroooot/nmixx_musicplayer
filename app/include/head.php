@@ -23,7 +23,9 @@ $seo_data = $seo->getDataFromUrl($url);
     <meta name="name" content="<?=COMPANY_NAME?>">
     <meta name="type" content="website">
     <!-- <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no"> -->
-    <?php if(MobileCheck() > 0) {?>
+    <?php if(TabletCheck()) {?>
+    <meta name="viewport" content="width=1024, user-scalable=0">
+    <?php } else if(MobileCheck()) { ?>
     <meta name="viewport" content="width=640, user-scalable=0">
     <?php } else { ?>
     <meta name="viewport" content="width=1920, user-scalable=0">

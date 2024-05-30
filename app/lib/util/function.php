@@ -393,17 +393,30 @@ function fileupload($filename, $uploadFullPath, $req, $isSize, $maxSaveSize) {
 	}
 }
 
+function TabletCheck() {
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
+    $tabletArray = array("ipad", "tablet", "kindle", "playbook", "silk", "nexus 7", "nexus 10", "galaxy tab", "surface", "xoom");
 
-function MobileCheck() { 
-    global $HTTP_USER_AGENT; 
-	$HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
-    $MobileArray  = array("iphone","lgtelecom","skt","mobile","samsung","nokia","blackberry","android","android","sony","phone", "ipad", "ipod", "nexus", "lg", "macintosh", "ios");
+    foreach ($tabletArray as $device) {
+        if (preg_match("/$device/i", $userAgent)) {
+            return true;
+        }
+    }
 
-    $checkCount = 0; 
-        for($i=0; $i<sizeof($MobileArray); $i++){ 
-            if(preg_match("/$MobileArray[$i]/", strtolower($HTTP_USER_AGENT))){ $checkCount++; break; } 
-        } 
-   return ($checkCount >= 1); 
+    return false;
+}
+
+function MobileCheck() {
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
+    $mobileArray = array("iphone", "lgtelecom", "skt", "mobile", "samsung", "nokia", "blackberry", "android", "sony", "phone", "ipad", "ipod", "nexus", "lg", "macintosh", "ios");
+
+    foreach ($mobileArray as $device) {
+        if (preg_match("/$device/i", $userAgent)) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 /**
