@@ -485,62 +485,66 @@
                                             <span>업데이트 내역입니다.</span>
                                         </div>
                                     </div>
-                                    <div class="cont-area update-body">
-                                        <picture class="update-icon-bell">
-                                            <img style="height: 100%; width: 100%" src="../app/img/icon_bell.png" alt="...">
-                                        </picture>
-                                        <div class="border-left-red">
-                                            <div class="update-title">
-                                                <span class="new-style">New</span>
-                                                <span>해원이의 스케줄이 업데이트 되었습니다.</span>
-                                            </div>
-                                            <div class="update-info">
-                                                24.05.31 update
-                                                <div class="update-category">
-                                                    <picture class="update-icon-hammer">
-                                                        <img style="height: 100%; width: 100%; object-fit: contain" src="../app/img/ico_hammer.png" alt="...">
-                                                    </picture>
-                                                    기능 ( 카테고리 )
+                                    <div class="cont-area">
+                                        <div class="update-body">
+                                            <div class="update-item">
+                                                <picture class="update-icon-bell">
+                                                    <img style="height: 100%; width: 100%" src="../app/img/icon_bell.png" alt="...">
+                                                </picture>
+                                                <div class="border-left-red">
+                                                <div class="update-title">
+                                                    <span class="red-new">New</span>
+                                                    <span>해원이의 스케줄이 업데이트 되었습니다.</span>
+                                                </div>
+                                                <div class="update-info">
+                                                    24.05.31 update
+                                                    <div class="update-category">
+                                                        <picture class="update-icon-hammer">
+                                                            <img style="height: 100%; width: 100%; object-fit: contain" src="../app/img/ico_hammer.png" alt="...">
+                                                        </picture>
+                                                        기능 ( 카테고리 )
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="cont-area update-body">
-                                        <picture class="update-icon-bell">
-                                            <img style="height: 100%; width: 100%" src="../app/img/icon_bell.png" alt="...">
-                                        </picture>
-                                        <div class="border-left-red">
-                                            <div class="update-title">
-                                                <span class="new-style">New</span>
-                                                <span>해원이의 스케줄이 업데이트 되었습니다.</span>
                                             </div>
-                                            <div class="update-info">
-                                                24.05.31 update
-                                                <div class="update-category">
-                                                    <picture class="update-icon-hammer">
-                                                        <img style="height: 100%; width: 100%; object-fit: contain" src="../app/img/ico_hammer.png" alt="...">
-                                                    </picture>
-                                                    기능 ( 카테고리 )
+                                            <div class="update-item">
+                                                <picture class="update-icon-bell">
+                                                    <img style="height: 100%; width: 100%" src="../app/img/icon_bell.png" alt="...">
+                                                </picture>
+                                                <div class="border-left-red">
+                                                    <div class="update-title">
+                                                        <span class="red-new">New</span>
+                                                        <span>해원이의 스케줄이 업데이트 되었습니다.</span>
+                                                    </div>
+                                                    <div class="update-info">
+                                                        24.05.31 update
+                                                        <div class="update-category">
+                                                            <picture class="update-icon-hammer">
+                                                                <img style="height: 100%; width: 100%; object-fit: contain" src="../app/img/ico_hammer.png" alt="...">
+                                                            </picture>
+                                                            기능 ( 카테고리 )
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="cont-area update-body">
-                                        <picture class="update-icon-bell">
-                                            <img style="height: 100%; width: 100%" src="../app/img/icon_bell.png" alt="...">
-                                        </picture>
-                                        <div class="border-left-red">
-                                            <div class="update-title">
-                                                <span class="new-style">New</span>
-                                                <span>해원이의 스케줄이 업데이트 되었습니다.</span>
-                                            </div>
-                                            <div class="update-info">
-                                                24.05.31 update
-                                                <div class="update-category">
-                                                    <picture class="update-icon-hammer">
-                                                        <img style="height: 100%; width: 100%; object-fit: contain" src="../app/img/ico_hammer.png" alt="...">
-                                                    </picture>
-                                                    기능 ( 카테고리 )
+                                            <div class="update-item">
+                                                <picture class="update-icon-bell">
+                                                    <img style="height: 100%; width: 100%" src="../app/img/icon_bell.png" alt="...">
+                                                </picture>
+                                                <div class="border-left-red">
+                                                    <div class="update-title">
+                                                        <span class="red-new">New</span>
+                                                        <span>해원이의 스케줄이 업데이트 되었습니다.</span>
+                                                    </div>
+                                                    <div class="update-info">
+                                                        24.05.31 update
+                                                        <div class="update-category">
+                                                            <picture class="update-icon-hammer">
+                                                                <img style="height: 100%; width: 100%; object-fit: contain" src="../app/img/ico_hammer.png" alt="...">
+                                                            </picture>
+                                                            기능 ( 카테고리 )
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -843,9 +847,19 @@
 </body>
 <style>
     #main .section3 .update-section .update-body {
+        padding: 20px;
+
+        height: 250px;
+
+        border-top: 1px solid darkgray;
+        overflow-y: auto;
+    }
+
+    #main .section3 .update-section .update-body .update-item {
         position: relative;
 
-        padding: 5px 5px 5px 0;
+        margin-bottom: 15px;
+        padding: 10px 10px 10px 0;
 
         border-radius: 10px;
         background-color: black;
@@ -874,7 +888,7 @@
         border-left: 2px solid red;
     }
 
-    #main .section3 .update-section .update-body .update-title .new-style {
+    #main .section3 .update-section .update-body .update-title .red-new {
         display: inline-block;
 
         padding: 1px 4px;
