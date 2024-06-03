@@ -79,6 +79,16 @@ if ( ! function_exists('print_r2')) {
 	}
 }
 
+// newiconf 표기여부 체크
+function checkNewIcon($registdate='', $day=0) {
+	$img = false;
+	$r = (microtime(true)-strtotime($registdate))/60/60/24;
+	if ($r < $day && $day > 0) {
+		$img = true;
+	}
+	return $img;
+}
+
 // 파일사이즈를 계산해서 알맞은 단위로 변경한다.
 function getFileSize($fileSize = 0) {
 	$fSize = "";

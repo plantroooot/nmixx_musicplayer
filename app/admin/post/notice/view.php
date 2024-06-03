@@ -11,7 +11,7 @@ include $_SERVER['DOCUMENT_ROOT']."/admin/include/loginCheck.php";
 include "../post/config.php";
 
 
-$pageTitle = '업데이트 내역';
+$pageTitle = '공지사항';
 $post = new Post($pageRows, $tablename, $_REQUEST, $primary_key);
 
 if($_REQUEST['no']){
@@ -46,38 +46,38 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
                                 <th scope="row">작성자</th>
                                 <td><?php echo $data['post_username'] ?></td>
                             </tr>
+                            <tr>
+                                <th scope="row">탑공지 여부</th>
+                                <td><?php echo $data['post_top'] ? '사용' : '사용안함';?></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h2 class="h2_frm">업데이트 정보</h2>
+                <h2 class="h2_frm">공지정보</h2>
                 <div class="tbl_frm01 tbl_wrap">
                     <table>
-                        <caption>업데이트 정보</caption>
+                        <caption>공지정보</caption>
                         <colgroup>
 							<col width="12.5%">
 							<col width="*">
                         </colgroup>
                         <tbody>
                             <tr>
-                                <th scope="row">업데이트 구분</th>
-                                <td><?php echo getUpdateType($data['post_categoryfk'])?></td>
+                                <th scope="row">제목(국문)</th>
+                                <td><?php echo $data['post_title'] ?></td>
                             </tr>
                             <tr>
-                                <th scope="row">업데이트 메뉴</th>
-                                <td><?php echo getMenuToText($data['post_category_menu'])?></td>
+                                <th scope="row">제목(영문)</th>
+                                <td><?php echo $data['post_title_en'] ?></td>
                             </tr>
                             <tr>
-                                <th scope="row">업데이트 일자</th>
-                                <td><?php echo getYMD($data['post_updatetime2']) ?></td>
+                                <th scope="row">내용(국문)</th>
+                                <td><?php echo $data['post_contents'] ?></td>
                             </tr>
                             <tr>
-                                <th scope="row">업데이트 내용(국문)</th>
-                                <td><?php echo nl2br($data['post_contents']) ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">업데이트 내용(영문)</th>
-                                <td><?php echo nl2br($data['post_contents_en']) ?></td>
+                                <th scope="row">내용(영문)</th>
+                                <td><?php echo $data['post_contents_en'] ?></td>
                             </tr>                        
                             <?php if($brd_data['brd_link'] && $brd_data['brd_linkcnt'] > 0){
                                 $post_links = json_decode($data['post_links']);

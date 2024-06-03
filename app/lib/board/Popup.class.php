@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/function.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/db/DBConnection.class.php";
 
-class Post {
+class Popup {
 
 	// 검색 파라미터 (초기 개발시 검색조건 세팅필요)
 	var $param = array (
@@ -83,7 +83,7 @@ class Post {
 
 	// sql WHERE절 생성
 	function getWhereSql($p) {
-		$whereSql = " WHERE 1=1 AND post_delyn = 'N' AND brd_code = '".$p['bcode']."'";
+		$whereSql = " WHERE 1=1 AND pop_delyn = 'N'";
 
 		if (isset($p['sval'])) {
 			if(isset($p['stype'])){
@@ -138,12 +138,11 @@ class Post {
 		$whereSql = $this->getWhereSql($param);	// where절
 
 		$sql = "
-			SELECT *,			
-			(SELECT CASE WHEN post_startdate > NOW() THEN '2' WHEN post_enddate < NOW() THEN '3' ELSE '1' END AS status) AS post_vote_status,
-			(SELECT brd_newdate FROM board WHERE brd_code = post.brd_code) AS post_newdate
+			SELECT *
 			FROM ".$this->tableName."
 			".$whereSql."
-			ORDER BY post_top DESC, post_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
+			ORDER BY pop_datetime DESC
+			LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
 
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
@@ -174,9 +173,29 @@ class Post {
 		$dbconn = new DBConnection();
 		$conn = $dbconn->getConnection();
 
-		$sql = update_query($this->tableName, $this->primary_key, $no, $req);
 		
-		$result = mysqli_query($conn, $sql);
+		$sql = update_query($this->tableName, $this->primary_key, $no, $req);		
+		
+		try{
+			$result = mysqli_query($conn, $sql);
+			
+			if ($result){
+				return $result;
+			}else{
+				$e = mysqli_error($conn);
+				echo $e.'<br/><br/>';
+				echo $sql;				
+				exit;
+			}
+		}
+		catch(Excetpion $e)
+		{
+			echo  $e->getMessage();
+			echo "<br>";
+			exit;
+		}
+
+
 		mysqli_close($conn);
 
 		return $result;
@@ -187,7 +206,7 @@ class Post {
 		$dbconn = new DBConnection();
 		$conn = $dbconn->getConnection();
 
-		$sql = "UPDATE ".$this->tableName." SET post_delyn = 'Y' WHERE post_id = ".$no;
+		$sql = "UPDATE ".$this->tableName." SET pop_delyn = 'Y' WHERE post_id = ".$no;
 
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
@@ -210,62 +229,6 @@ class Post {
 		$data = mysqli_fetch_assoc($result);
 
 		return $data;
-	}
-
-	// 목록
-	function getListAll($param='') {
-		$dbconn = new DBConnection();
-		$conn = $dbconn->getConnection(); //DB CONNECT
-		$param = escape_string($param);	
-		$whereSql = $this->getWhereSql($param);	// where절
-
-		$sql = "
-			SELECT *,			
-			(SELECT CASE WHEN post_startdate > NOW() THEN '2' WHEN post_enddate < NOW() THEN '3' ELSE '1' END AS status) AS post_vote_status
-			FROM ".$this->tableName."
-			WHERE 1=1 AND post_delyn = 'N'
-			ORDER BY post_top DESC, post_datetime DESC LIMIT ".$this->startPageNo.", ".$this->pageRows." ";
-
-		$result = mysqli_query($conn, $sql);
-		mysqli_close($conn);
-		
-		
-		$list = rstToArray($result);
-
-		return $list;
-	}
-
-	// 카테고리
-	function getCategory($req='') {
-		$dbconn = new DBConnection();
-		$conn = $dbconn->getConnection();
-
-		$sql = "
-			SELECT *,
-			(SELECT COUNT(*) FROM board WHERE B_categoryfk = board_category.C_sqkey AND B_delyn = 0) AS b_cnt
-			FROM board_category WHERE B_code = '{$req['P_code']}' AND C_delyn = 0 ORDER BY C_ordinumber ASC
-		";
-		
-		$result = mysqli_query($conn, $sql);
-		mysqli_close($conn);
-
-		return $result;
-	}
-
-	function getCategoryAllCount($req='') {
-		$dbconn = new DBConnection();
-		$conn = $dbconn->getConnection();
-
-		$sql = "
-			SELECT COUNT(*) AS cnt FROM board_category WHERE B_code = '{$req['P_code']}'
-		";
-		
-		$result = mysqli_query($conn, $sql);
-		mysqli_close($conn);
-
-		$cnt = mysqli_fetch_assoc($result);
-
-		return $cnt;
 	}
 
 	// rownum 구하기

@@ -99,21 +99,19 @@ $(window).load(function(){
                     </div>
                 </div>
             </li>  
-            <?/*
             <li class="gnb_li">
-                <button type="button" class="btn_op menu-200 menu-order-1" title="관리자관리">관리자관리</button>
+                <button type="button" class="btn_op menu-300 menu-order-1" title="사이트관리">사이트관리</button>
                 <div class="gnb_oparea_wr">
                     <div class="gnb_oparea">
-                        <h3>관리자관리</h3>
+                        <h3>사이트관리</h3>
                         <ul>
                             <li>
-                                <a href="" class="gnb_2da">기본환경설정</a>
+                                <a href="/admin/site/popup/" class="gnb_2da">팝업관리</a>
                             </li>
                         </ul>                        
                     </div>
                 </div>
             </li>
-            */?>
         </ul>
     </nav>
 </header>

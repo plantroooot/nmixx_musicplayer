@@ -5,6 +5,7 @@
                     메인
 ================================================== */
 .wrapper{max-width: 1000px;}
+.new_icon{display: inline-block; width: 15px; height: 15px; line-height: 15px; font-size: 9px; color: #fff; font-weight: 800; background-color: #1a288f; border-radius: 50%; text-align: center;}
 #hd h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #hd_top{position:fixed;top:0;left:0;width:100%;height:50px;background:#3f51b5;z-index:1000}
 #hd_top:after{display:block;visibility:hidden;clear:both;content:""}

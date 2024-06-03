@@ -11,6 +11,8 @@ const DB_ENCRYPTION = "CONCAT('*', UPPER(SHA1(UNHEX(SHA1(";                     
 
 const CHECK_REFERER = true;                                    // 레퍼러값 체크여부
 const REFERER_URL = "mixxplayer";                                // 레퍼러 비교 도메인(www 제외)
+const EDITOR_UPLOAD_PATH = "/upload/editor/";                // editor 이미지 업로드 경로
+const EDITOR_MAXSIZE = 5 * 1024 * 1024;                            // editor 이미지 업로드 최대사이트 (50MB)
 
 const START_PAGE = COMPANY_URL."/admin/schedule/";
 ?>
