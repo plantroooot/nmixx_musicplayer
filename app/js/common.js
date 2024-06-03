@@ -105,6 +105,51 @@ function closePopup(){
 // });
 
 
+// 팝업관련 js
+function startTime(cName, pName) {
+
+	cookieIndex = getCookie(cName);
+	if ( cookieIndex ) {     
+		document.getElementById(pName).style.display = "none";
+		document.getElementById(cName).style.visibility = "hidden";
+	} else {
+		document.getElementById(pName).style.display = "block";
+		document.getElementById(cName).style.visibility = "visible";
+	}
+}
+
+function setCookieWeb( name, value ) {
+	var expiredays = 1;			//공지창 하루 안띄우기 시간. 1은 하루임
+	var todayDate = new Date();
+	todayDate.setDate(todayDate.getDate() + expiredays);
+	document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+function closeLayer(cName, type , pName) {
+    if ( type == 1) {
+		setCookieWeb(cName, "os");
+	}
+	document.getElementById(pName).style.display = "none";
+	document.getElementById(cName).style.visibility = "hidden";
+}
+
+function getCookie( name ) {
+	var nameOfCookie = name + "=";
+	var x = 0;
+	while ( x <= document.cookie.length ) {
+		var y = (x+nameOfCookie.length);
+		if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+			if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+			endOfCookie = document.cookie.length;
+			return unescape( document.cookie.substring( y, endOfCookie ) );
+		}
+
+		x = document.cookie.indexOf( " ", x ) + 1;
+		if ( x == 0 )
+		break;
+    }
+    return "";
+}
 
 /* 삭제하지 말것 */
 String.prototype.replaceAll = function(org, dest) {

@@ -18,7 +18,7 @@ $pageTitle = '팝업관리';
 $popup = new Popup($pageRows, $tablename, $_REQUEST);
 $rowPageCount = $popup->getCount($_REQUEST);
 $result = $popup->getList($_REQUEST);
-$colspan = 5;
+$colspan = 7;
 include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
 
 ?>
@@ -157,13 +157,6 @@ for($i = 0; $i < count($result); $i++) {
     $pop_url = $row['pop_relation_url'] ? "style='cursor:pointer;' onclick=\"window.open('".$row['pop_relation_url']."')\"" : '';
     
     $pop_position = $row['pop_center_yn'] == 'Y' ? 'left:50%;top:50%;transform:translate(-50%,-50%);' : 'left:'.$row['pop_area_left'].'px;top:'.$row['pop_area_top'].'px;';
-
-
-
-
-
-
-
 ?>
 	<div id="showimage<?=$row['pop_id']?>" style="position:absolute;<?php echo $pop_position; ?>z-index:999999;display:none;">
 		<div id="divPop<?=$row['pop_id']?>">

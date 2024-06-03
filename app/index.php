@@ -7,12 +7,14 @@ include_once $_SERVER['DOCUMENT_ROOT']."/lib/util/dateUtil.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/Post.class.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/board/OfficialInfo.class.php";
 
+
 include_once $_SERVER['DOCUMENT_ROOT']."/header.php";
 
 $post = new Post(99999, 'post', $_REQUEST);
 $prowPageCount = $post->getCount($_REQUEST);
 $presult = $post->getListAll($_REQUEST);
 
+// 진행중인 투표
 $vote_result = [];
 foreach ($presult as $item) {
     if ($item['brd_code'] === 'vote') {
@@ -20,11 +22,18 @@ foreach ($presult as $item) {
     }
 }
 
+// 공지사항
+$notice_result = [];
+foreach ($presult as $item) {
+    if ($item['brd_code'] === 'notice') {
+        $notice_result[] = $item;
+    }
+}
+
 $official = new OfficialInfo(9999, 'official_info', $_REQUEST);
 $oresult = $official->getList($_REQUEST);
 
-// print_r($vote_result);
-// exit;
+include_once $_SERVER['DOCUMENT_ROOT']."/include/popup/mainPopup.php";
 
 ?>
  
@@ -87,7 +96,6 @@ $oresult = $official->getList($_REQUEST);
 												if($vote_result){
 													foreach($vote_result as $key => $vrow){
 													$vpost_links = json_decode($vrow['post_links'], true);
-
 											?>
 											<div class="swiper-slide">
 												<div class="swiper-box">
@@ -121,10 +129,81 @@ $oresult = $official->getList($_REQUEST);
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="section-half twitter-section">
+					</div>					
+					<div class="section-half notice-section">
 						<div class="section-shadow">
-							<a class="twitter-timeline" href="https://twitter.com/NMIXX_xstream?ref_src=twsrc%5Etfw">Tweets by NMIXX_xstream</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+							<div class="tit-area clear">
+								<div class="tit-box">
+									<h2 class="gd-dot">공지사항</h2>
+									<span>음원총공팀 공지사항 입니다.</span>
+								</div>
+							</div>
+							<div class="cont-area scroll-wrap">
+								<ul>
+									<?php 
+										if($notice_result){
+											foreach($notice_result as $key => $nrow){
+										if($key == 0){									
+									?>
+									<li>
+										<a href="javascript:;">
+											<div class="notice-item">
+												<div class="notice-header">
+													<span class="notice-title"><?php echo $nrow['post_title']?></span>
+													<span class="notice-date"><?php echo getYMD($nrow['post_datetime'])?></span>
+												</div>
+												<div class="notice-body">
+													<?php echo $nrow['post_contents']?>
+												</div>
+											</div>
+										</a>
+									</li>									
+									<?php
+										}else{
+									?>									
+									<li>
+										<a href="javascript:;">
+											<div class="notice-item">
+												<div class="notice-header">
+													<span class="notice-title"><?php echo $nrow['post_title']?></span>
+													<span class="notice-date"><?php echo getYMD($nrow['post_datetime'])?></span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<?php
+											}
+										}
+									}
+
+									if(! $vote_result ){
+										
+									?>
+									<li>
+										<a href="javascript:;">
+											<div class="notice-item">
+												<div class="notice-header">
+													<span class="notice-title">등록된 공지사항이 없습니다.</span>
+												</div>
+											</div>
+										</a>
+									</li>
+									<?php } ?>
+								</ul>
+
+
+
+								<?/*
+								<a href="" class="">
+									<div class="notice-item">
+										<div class="notice-header">
+											<span class="notice-title">[공지] 음원총공 팀의 공지사항입니다.</span>
+											<span class="notice-date">2024/06/01</span>
+										</div>
+									</div>
+								</a>
+								*/?>
+							</div>
 						</div>
 					</div>
 				</div>

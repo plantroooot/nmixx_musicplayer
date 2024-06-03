@@ -87,11 +87,11 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
                             <tr>                                
                                 <th scope="row"><label for="pop_area_left">좌측위치<strong class="sound_only">필수</strong></label></th>
                                 <td>
-                                    <input type="text" name="pop_area_left" value="<?php echo $data['pop_area_left']; ?>" id="pop_area_left" class="frm_input" size="40" maxlength="120" autocomplete="off">
+                                    <input type="text" name="pop_area_left" value="<?php echo $data['pop_area_left']; ?>" id="pop_area_left" class="frm_input" size="40" maxlength="120" autocomplete="off">px
                                 </td>                           
                                 <th scope="row"><label for="pop_area_top">상단위치<strong class="sound_only">필수</strong></label></th>
                                 <td>
-                                    <input type="text" name="pop_area_top" value="<?php echo $data['pop_area_top']; ?>" id="pop_area_top" class="frm_input" size="40" maxlength="120" autocomplete="off">
+                                    <input type="text" name="pop_area_top" value="<?php echo $data['pop_area_top']; ?>" id="pop_area_top" class="frm_input" size="40" maxlength="120" autocomplete="off">px
                                 </td>
                             </tr>
                             <tr>
