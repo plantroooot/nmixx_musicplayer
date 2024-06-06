@@ -28,7 +28,7 @@
 				</h1>	
 			</div>
 			<div class="gnb-wrap">
-				<ul>
+				<ul class="pc">
 					<?
 						/*
 						| ----------------------------------------------------------------------------------------
@@ -40,6 +40,61 @@
 					?>
 						<li>
 							<a href="<?php echo $seorow['seo_url']?>"><?php echo $seorow['seo_name']?></a>
+							<?php
+								if($seorow['depth2']){
+							?>
+								<ul>
+									<?php 
+										foreach($seorow['depth2'] as $key2 => $seorow2){
+									?>
+									<li>
+										<a href="<?php echo $seorow2['seo_url']?>"><?php echo $seorow2['seo_name']?></a>
+									</li>
+									<?php
+										}
+									?>
+								</ul>
+
+							<?php
+								}
+							?>
+						</li>
+					<?
+						}
+					
+					}
+					?>
+				</ul>
+				<ul class="mo">
+					<?
+						/*
+						| ----------------------------------------------------------------------------------------
+						| depth1
+						| ----------------------------------------------------------------------------------------
+						*/
+						if($seo_result){
+							foreach($seo_result as $key => $seorow){
+					?>
+						<li>
+							<a href="<?php echo ! $seorow['depth2'] ? $seorow['seo_url'] : 'javascript:;'?>"><?php echo $seorow['seo_name']?></a>
+							<?php
+								if($seorow['depth2']){
+							?>
+								<ul>
+									<?php 
+										foreach($seorow['depth2'] as $key2 => $seorow2){
+									?>
+									<li>
+										<a href="<?php echo $seorow2['seo_url']?>"><?php echo $seorow2['seo_name']?></a>
+									</li>
+									<?php
+										}
+									?>
+								</ul>
+
+							<?php
+								}
+							?>
 						</li>
 					<?
 						}
@@ -57,7 +112,6 @@
 						</li>
 					</ul>
 				</div> -->
-
 			</div>
 			<!-- <div class="util-wrap util-wrap-pc">
 				<ul>

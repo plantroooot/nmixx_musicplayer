@@ -142,11 +142,13 @@ include_once $_SERVER['DOCUMENT_ROOT']."/include/popup/mainPopup.php";
 								<ul>
 									<?php 
 										if($notice_result){
+											$_REQUEST['bcode'] = 'notice';
 											foreach($notice_result as $key => $nrow){
+											$targetUrl = $post->getQueryString('/post/view.php', $nrow['post_id'], $_REQUEST);
 										if($key == 0){									
 									?>
 									<li>
-										<a href="javascript:;">
+										<a href="<?php echo $targetUrl; ?>">
 											<div class="notice-item">
 												<div class="notice-header">
 													<span class="notice-title"><?php echo $nrow['post_title']?></span>
@@ -162,7 +164,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/include/popup/mainPopup.php";
 										}else{
 									?>									
 									<li>
-										<a href="javascript:;">
+										<a href="<?php echo $targetUrl; ?>">
 											<div class="notice-item">
 												<div class="notice-header">
 													<span class="notice-title"><?php echo $nrow['post_title']?></span>

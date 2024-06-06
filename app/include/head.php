@@ -3,12 +3,22 @@ include_once $_SERVER['DOCUMENT_ROOT']."/include/common.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/siteProperty.php";
 include_once $_SERVER['DOCUMENT_ROOT']."/lib/seo/Seo.class.php";
 
+
+
 $_REQUEST['user'] = 1;
 $seo = new Seo(99999, 'seo', $_REQUEST, 'seo_id');
 $seo_result = $seo->getList($_REQUEST);
 
 $url = $_SERVER['REQUEST_URI'];
+
+if(strpos($url, "post/view.php") && !empty($_REQUEST["bcode"]) && !empty($_REQUEST["no"])) {
+    $post = new Post(1, "post", $_REQUEST, $_REQUEST["bcode"]);
+    $post_data = $post->getData($_REQUEST["no"], false);
+    $url = "/post/?bcode=".$_REQUEST["bcode"];
+ }
+
 $seo_data = $seo->getDataFromUrl($url);
+
 
 ?>
 <!doctype html>
@@ -58,6 +68,7 @@ $seo_data = $seo->getDataFromUrl($url);
     <link rel="stylesheet" href="/css/reset.css?v=<?=time()?>">
     <link rel="stylesheet" href="/css/component.css?v=<?=time()?>">
     <link rel="stylesheet" href="/css/content.css?v=<?=time()?>">
+    <link rel="stylesheet" href="/css/program.css?v=<?=time()?>">
     <link rel="stylesheet" href="/css/responsive.css?v=<?=time()?>">
 
     <!-- scripts -->

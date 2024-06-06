@@ -100,6 +100,7 @@
 #sub .img-wrap1 .imgs:first-child{margin-top: 0;}
 #sub .sub-gnb1{padding-bottom: 40px; box-sizing: border-box; max-width: 850px; margin: 0 auto;}
 #sub .sub-gnb2{max-width: 550px;}
+#sub .sub-gnb3{max-width: 850px;}
 /* #sub .sub-gnb1 ul{display: flex; justify-content: center; gap: 15px;} */
 #sub .sub-gnb1 ul{font-size: 0; text-align: center; margin-top: -15px;}
 #sub .sub-gnb1 ul li{display: inline-block; margin-left: 15px; margin-top: 15px;}

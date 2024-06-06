@@ -28,17 +28,17 @@ function pageList($reqPageNo=1, $pageCount=0, $listUrl="") {
 	// 첫번째 페이지 인덱스 화면이 아닌경우
 	if ($reqPageNo > $pagenumber) {
 		$curpage = $startpage - 1;		// 시작페이지번호보다 1적은 페이지로 이동
-		$strList = $strList."<li><a href='".$listUrl."reqPageNo=1' class='board first'><span class='material-icons'>first_page</span></a></li> ";
-		$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$curpage."' class='board prev'><span class='material-icons'>arrow_back_ios</span></a></li> ";
+		$strList = $strList."<li><a href='".$listUrl."reqPageNo=1' class='bt first'><<</a></li> ";
+		$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$curpage."' class='bt prev'><</a></li> ";
 	}
 
 	// 시작페이지번호부터 마지막페이지번호까지 출력
 	$curpage = $startpage;
 	while ($curpage <= $endpage) {
 		if ($curpage == $reqPageNo) {
-			$strList = $strList."<li><a href='javascript:;' class='current'>".$reqPageNo."</a></li>";
+			$strList = $strList."<li><a href='javascript:;' class='num current'>".$reqPageNo."</a></li>";
 		} else {
-			$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$curpage."'>".$curpage."</a></li>";
+			$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$curpage."' class='num'>".$curpage."</a></li>";
 		}
 		$curpage++;
 	}
@@ -46,8 +46,8 @@ function pageList($reqPageNo=1, $pageCount=0, $listUrl="") {
 	// 뒤에 페이지가 더 있는 경우
 	if ($pageCount > $endpage) {
 		$curpage = $endpage+1;
-		$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$curpage."' class='board next'><span class='material-icons'>arrow_forward_ios</span></a></li>";
-		$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$pageCount."' class='board last'><span class='material-icons'>last_page</span></a></li>";
+		$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$curpage."' class='bt next'><span class='material-icons'>arrow_forward_ios</span></a></li>";
+		$strList = $strList."<li><a href='".$listUrl."reqPageNo=".$pageCount."' class='bt last'><span class='material-icons'>last_page</span></a></li>";
 	}
 	$strList = $strList."</ul>";
 

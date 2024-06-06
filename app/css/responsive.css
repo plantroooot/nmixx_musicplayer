@@ -16,11 +16,12 @@
     #header .header-body .logo-wrap h1 a{width: 150px; height: 105px; background-size: auto 73px;}
 
     #header .header-body .gnb-wrap{display: none; padding: 20px; box-sizing: border-box; width: 100%; position: absolute; right: 0; top: 105px; z-index: 1001; background-color: #fff;}
+    #header .header-body .gnb-wrap > ul.pc{display: none;}
+    #header .header-body .gnb-wrap > ul.mo{display: flex !important;}
     #header .header-body .gnb-wrap > ul{flex-direction: column;}
     #header .header-body .gnb-wrap > ul > li > a{height: 100px; line-height: 100px; font-size: 2.8rem; text-align: center;}
-    #header .header-body .gnb-wrap > ul > .guide > ul {position: relative; overflow: hidden;}
-    #header .header-body .gnb-wrap > ul > .guide > ul > li > a{line-height: 100px; font-size: 2.8rem; text-align: center;}
-    #header .header-body .gnb-wrap > ul > .guide:hover > ul {height: 720px;}
+    #header .header-body .gnb-wrap > ul > li > ul {position: static; overflow: initial; display: none; height: auto; transition: initial;}
+    #header .header-body .gnb-wrap > ul > li > ul > li > a{line-height: 100px; font-size: 2.8rem; text-align: center;}
     #header .header-body .util-wrap-pc{display: none;}
     #header .header-body .util-wrap-mo{display: block;}
     

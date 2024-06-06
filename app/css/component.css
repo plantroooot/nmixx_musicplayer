@@ -17,9 +17,10 @@
 /* ==================================================
     header
 ================================================== */
+#header .mo{display: none;}
 
 #header { width: 100%; position: fixed; top: 0; left: 0; z-index: 1000;}
-#header .header-body { width: 100%; display: flex;  flex-direction: column; position: relative; z-index: 1001; box-sizing: border-box; border-bottom: 1px solid rgba(246, 246, 246, 0.4); background-color: #fff;}
+#header .header-body { width: 100%; display: flex;  flex-direction: column; position: relative; z-index: 1001; box-sizing: border-box; border-bottom: 1px solid #e9e9e9; background-color: #fff;}
 #header .header-body .header-inner {width: 100%; margin: 0 auto; max-width: 100%; padding: 0 50px; box-sizing: border-box;}
 
 #header .header-body .logo-wrap h1 a{display: block; width: 240px; height: 90px; line-height: 90px; background-image: url('/img/logo.png'); background-repeat: no-repeat; background-size: contain; background-size: auto 60px; background-position: 50% 50%;}
@@ -28,35 +29,17 @@
 #header .header-body .gnb-wrap > ul a:hover {font-weight: bold}
 
 /*가이드 리스트*/
-#header .header-body .gnb-wrap > ul .guide {position: relative;}
-#header .header-body .gnb-wrap > ul .guide > a {background-color: white;}
-#header .header-body .gnb-wrap > ul .guide:hover ul {height: 250px;}
+#header .header-body .gnb-wrap > ul > li {position: relative;}
+#header .header-body .gnb-wrap > ul > li > a {background-color: white;}
 
-#header .header-body .gnb-wrap > ul .guide ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#header .header-body .gnb-wrap > ul > li > ul { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 0; position: absolute; left: 0; top: 91px; overflow: hidden; transition: all 0.5s; background-color: rgba(249, 249, 249, 0.8);}
 
-    width: 100%;
-    height: 0;
 
-    position: absolute;
-    overflow: hidden;
+#header .header-body .gnb-wrap > ul > li > ul a { display: block; width: 100%; padding: 10px 0; font-size: 1.8rem; font-weight: 500;}
 
-    transition: all 0.5s;
-    background-color: rgba(255, 255, 255, 0.8);
-}
 
-#header .header-body .gnb-wrap > ul .guide ul a:hover {font-weight: bold;}
-
-#header .header-body .gnb-wrap > ul .guide ul a {
-    display: block;
-    width: 100%;
-    padding: 10px 0;
-    font-size: 1.8rem;
-    font-weight: 500;
-}
+#header .header-body .gnb-wrap > ul.pc > li:hover > ul {height: 250px;}
+#header .header-body .gnb-wrap > ul.pc > li > ul a:hover {font-weight: bold;}
 
 #header .header-body .util-wrap{padding: 0 30px; box-sizing: border-box;}
 #header .header-body .util-wrap > ul{display: flex;}

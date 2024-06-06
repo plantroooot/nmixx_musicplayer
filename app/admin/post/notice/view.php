@@ -42,7 +42,7 @@ include_once $_SERVER['DOCUMENT_ROOT']."/admin/include/header.php";
                         <tbody>
                             <tr>
                                 <th scope="row">등록일</th>
-                                <td><?php echo $data['post_datetime'] ?></td>
+                                <td><?php echo getYMD($data['post_datetime']) ?></td>
                                 <th scope="row">작성자</th>
                                 <td><?php echo $data['post_username'] ?></td>
                             </tr>

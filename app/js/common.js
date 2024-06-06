@@ -3,23 +3,23 @@ $(function(){
 	
 	var mobile = {
 		open : function(){
-			$('.mo_menu').stop().animate({'left':'0'},400,'easeInOutQuad');
+			$('.mo_menu').stop().animate({'left':'0'},400);
 		},
 		close : function(){
-			$('.mo_menu').stop().animate({'left':'-200%'}, 400, 'easeInOutQuad');
+			$('.mo_menu').stop().animate({'left':'-200%'}, 400);
 		},
 		down : function(target){
 			$(target).addClass('on');
-			$(target).next().stop().slideDown(400,'easeInOutQuad');
+			$(target).next().stop().slideDown(400);
 			
 		},
 		up : function(target){
 			$(target).removeClass('on');
-			$(target).next().stop().slideUp(400, 'easeInOutQuad');
+			$(target).next().stop().slideUp(400);
 		},
 		siblingsUp : function(target){
 			$(target).parent().siblings('li').children('a').removeClass('on');
-			$(target).parent().siblings('li').children('ul').stop().slideUp(400, 'easeInOutQuad');
+			$(target).parent().siblings('li').children('ul').stop().slideUp(400);
 		},
 		bgOn : function(){
 			$('.mbg').stop().fadeIn(400);
@@ -42,7 +42,7 @@ $(function(){
 		//$('html,body').css({'overflow':'visible' , 'height' : 'initial'});
 	});
 
-	$('.mgnb .depth1 > li > a').on('click',function(){
+	$('.gnb-wrap ul.mo > li > a').on('click',function(){
 		mobile.siblingsUp(this);
 		if($(this).hasClass('on')){
 			mobile.up(this);
@@ -50,6 +50,7 @@ $(function(){
 			mobile.down(this);
 		}
 	});
+	
 
 	/*$( ".datepicker" ).datepicker({
 		dateFormat: "yy-mm-dd",

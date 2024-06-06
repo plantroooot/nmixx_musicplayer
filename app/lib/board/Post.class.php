@@ -203,6 +203,11 @@ class Post {
 			SELECT *
 			FROM ".$this->tableName."
 			WHERE ".$this->primary_key." = ".$no;
+
+		// 조회수 증가
+		if ($userCon) {
+			mysqli_query($conn, "UPDATE ".$this->tableName." SET post_readno=post_readno+1 WHERE post_id=".$no);
+		}
 		
 		$result = mysqli_query($conn, $sql);
 		mysqli_close($conn);
